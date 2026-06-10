@@ -5,8 +5,8 @@ Web oficial de Código Color · Colorimetría y asesoría de imagen · Dirigida 
 ## Estado del proyecto
 
 - Última actualización: 2026-06-10
-- Fase actual: **FASE 1 — Dirección de arte y estrategia SEO/GEO** (entregada, pendiente de aprobación)
-- Documentos: [`docs/FASE-0-ARQUITECTURA.md`](docs/FASE-0-ARQUITECTURA.md) (aprobada) · [`docs/FASE-1-DIRECCION-ARTE-SEO.md`](docs/FASE-1-DIRECCION-ARTE-SEO.md)
+- Fase actual: **FASE 2 — Benchmark visual** (entregada, pendiente de aprobación)
+- Documentos: [`docs/FASE-0-ARQUITECTURA.md`](docs/FASE-0-ARQUITECTURA.md) (aprobada) · [`docs/FASE-1-DIRECCION-ARTE-SEO.md`](docs/FASE-1-DIRECCION-ARTE-SEO.md) (aprobada) · [`docs/FASE-2-BENCHMARK-VISUAL.md`](docs/FASE-2-BENCHMARK-VISUAL.md)
 
 ## Decisiones tomadas (Fase 0 — APROBADA)
 
@@ -18,8 +18,8 @@ Web oficial de Código Color · Colorimetría y asesoría de imagen · Dirigida 
 ## Hoja de ruta por fases
 
 - [x] FASE 0 — Arquitectura técnica de implementación y despliegue *(APROBADA)*
-- [x] FASE 1 — Arquitectura modular, dirección de arte, estrategia SEO/GEO y estrategia Three.js/WebGL/movimiento premium *(pendiente de aprobación)*
-- [ ] FASE 2 — Benchmark visual (30+ referencias Apple + Awwwards)
+- [x] FASE 1 — Arquitectura modular, dirección de arte, estrategia SEO/GEO y estrategia Three.js/WebGL/movimiento premium *(APROBADA)*
+- [x] FASE 2 — Benchmark visual (30+ referencias Apple + Awwwards) *(pendiente de aprobación)*
 - [ ] FASE 3 — Wireframe editorial
 - [ ] FASE 4 — Copy, SEO y GEO (100 FAQs + schema)
 - [ ] FASE 5 — Diseño en Elementor
@@ -39,9 +39,10 @@ Web oficial de Código Color · Colorimetría y asesoría de imagen · Dirigida 
 ## Notas del cliente
 
 - Fase 0 aprobada explícitamente el 2026-06-10
+- Fase 1 aprobada explícitamente el 2026-06-10
+- Pendiente del cliente: las 8 respuestas sobre Cristina Barriga (D.4 de Fase 1) — bloqueantes para Fase 4
 
 ## Próximos pasos
 
-1. Aprobación explícita de la Fase 1
-2. Cliente: responder las 8 preguntas sobre Cristina Barriga (sección D.4 de Fase 1) — bloqueantes para Fase 4
-3. Tras aprobación → FASE 2: benchmark visual de 30+ referencias
+1. Aprobación explícita de la Fase 2
+2. Tras aprobación → FASE 3: wireframe editorial textual
