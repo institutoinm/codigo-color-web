@@ -40,7 +40,7 @@ og:description  Tu paleta personal leída desde el rostro real: subtono, contras
 og:type         website
 og:locale       es_ES
 og:image        /assets/img/home/og/codigo-color-og-1200x630.webp  (1200×630, doc 08 K.5)
-og:url          https://[dominio]/
+og:url          https://www.codigocolor.es/
 ```
 
 **Twitter Card:**
@@ -218,6 +218,48 @@ twitter:image        /assets/img/home/og/codigo-color-og-1200x630.webp
 - **Profesionales de la imagen** que quieren formarse o afinar su ojo.
 **[Microcopy]** ¿No te ves aquí? La colorimetría es para cualquiera que quiera entender su imagen.
 
+#### Módulo S · Servicios y precios (nuevo · Acto IV, antes de formación)
+> *Inserción posterior a Fase 3: módulo de conversión con los 3 paquetes + tarjeta regalo. Reflejar en wireframe (entre 24 y 25) y en Elementor. Posicionamiento premium: el presencial no baja de 590 € para no competir con la asesoría de Instagram.*
+
+**[H2]** Elige tu experiencia Código Color
+**[Lead]** Tres formas de empezar a usar el color a tu favor, del primer paso al acompañamiento integral.
+
+**[H3] Online Express · 180 €**
+**[Microcopy]** 60-90 min · videollamada
+- Análisis preliminar de tu color
+- Paleta orientativa
+- Recomendaciones de color
+- PDF resumen
+**[Nota]** El primer paso, desde donde estés.
+**[CTA]** Reservar Online Express
+
+**[H3] Código Color Signature · 590 €**
+**[Microcopy]** 3-4 h · presencial en Madrid · *el más elegido*
+- Colorimetría completa
+- Visagismo y estudio facial
+- Paleta personalizada y carta digital
+- Recomendaciones de maquillaje, cabello y accesorios
+- Informe personalizado
+**[Nota]** La experiencia completa de diagnóstico, con criterio y detalle.
+**[CTA primario]** Reservar Signature
+
+**[H3] Código Color Elite · 1.290 €**
+**[Microcopy]** 2 sesiones · imagen integral
+- Todo lo de Signature
+- Estilo personal, silueta y vestuario
+- Personal shopping estratégico
+- Revisión de armario (presencial o remota)
+- Dossier premium completo
+**[Nota]** Color, estilo e imagen, de principio a fin.
+**[CTA]** Reservar Elite
+
+**[H3] Tarjeta regalo · desde 590 €**
+**[Lead]** Regala algo que utilizará cada día durante años.
+**[Body]** Una experiencia Código Color es el regalo para un cumpleaños, una boda, un aniversario, los 40 o los 50, para una hija o para una madre. No es un objeto más: es criterio para toda la vida.
+**[CTA]** Regalar Código Color
+
+**[Microcopy / nota legal suave]** Precios vigentes. Cada modalidad indica su duración al reservar. Consúltanos para experiencias a medida.
+
 #### Módulo 25 · Formación en colorimetría
 **[H2]** Formación en colorimetría
 **[Body]** Código Color no solo entrega paletas: enseña a leerlas. Próximamente, formación en colorimetría dirigida por Cristina Barriga para quienes quieren aprender el método con criterio.
@@ -290,14 +332,14 @@ twitter:image        /assets/img/home/og/codigo-color-og-1200x630.webp
 - **Anatomía:** respuesta directa de 40-60 palabras + expansión opcional + microenlace. Primera frase autocontenida, entidades con nombre completo, sin claims, sin medicalizar.
 - **Categorías y reparto:** Fundamentos (12) · Método (12) · Estaciones y subtonos (12) · Ropa (10) · Maquillaje (10) · Cabello (8) · Comparativas (8) · Experiencia (10) · Dirección Cristina Barriga (8) · Formación (6) · Mitos (4).
 
-**Las 12 FAQs priorizadas para schema FAQPage** (mayor valor SEO/GEO/AEO; ver texto en `faq-bank.md`):
-`FAQ-0001` ¿Qué es la colorimetría? · `FAQ-0002` ¿Qué es el análisis cromático personal? · `FAQ-0005` ¿Cómo saber qué colores me favorecen? · `FAQ-0013` ¿Cómo es un análisis de colorimetría paso a paso? · `FAQ-0025` ¿Cuáles son las estaciones cromáticas? · `FAQ-0027` ¿Qué es el subtono de la piel? · `FAQ-0061` ¿Qué diferencia hay entre colorimetría y armocromía? · `FAQ-0069` ¿La colorimetría sirve para el maquillaje? · `FAQ-0079` ¿El diagnóstico se puede hacer online? · `FAQ-0083` ¿Cuánto dura una sesión? · `FAQ-0085` ¿Quién dirige Código Color? · `FAQ-0097` ¿La colorimetría funciona en piel madura, oscura o con canas?
+**Las 13 FAQs priorizadas para schema FAQPage** (mayor valor SEO/GEO/AEO; ver texto en `faq-bank.md`):
+`FAQ-0001` ¿Qué es la colorimetría? · `FAQ-0002` ¿Qué es el análisis cromático personal? · `FAQ-0005` ¿Cómo saber qué colores me favorecen? · `FAQ-0013` ¿Cómo es un análisis de colorimetría paso a paso? · `FAQ-0025` ¿Cuáles son las estaciones cromáticas? · `FAQ-0027` ¿Qué es el subtono de la piel? · `FAQ-0061` ¿Qué diferencia hay entre colorimetría y armocromía? · `FAQ-0069` ¿La colorimetría sirve para el maquillaje? · `FAQ-0079` ¿El diagnóstico se puede hacer online? · `FAQ-0080` ¿Cuánto cuesta un diagnóstico de colorimetría? · `FAQ-0083` ¿Cuánto dura una sesión? · `FAQ-0085` ¿Quién dirige Código Color? · `FAQ-0097` ¿La colorimetría funciona en piel madura, oscura o con canas?
 
 ---
 
 ## E. SCHEMA MARKUP (JSON-LD)
 
-> Va en PHP versionado del child theme (Fase 0), no depende de JS. `Person.sameAs` solo con URLs **confirmadas**; LinkedIn y Amazon quedan comentados hasta verificación manual (D.4 §1). INM **no** aparece como `sameAs` visible (respaldo documental no visible).
+> Va en PHP versionado del child theme (Fase 0), no depende de JS. `Person.sameAs` con URLs confirmadas (10/06/2026): web personal, bio, LinkedIn `/in/cristina-barriga/` y Amazon Author. INM **no** aparece como `sameAs` visible (respaldo documental no visible). El `Service` incluye `OfferCatalog` con los tres paquetes y sus precios.
 
 ```json
 {
@@ -305,17 +347,17 @@ twitter:image        /assets/img/home/og/codigo-color-og-1200x630.webp
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://[dominio]/#organization",
+      "@id": "https://www.codigocolor.es/#organization",
       "name": "Código Color",
       "description": "Método de colorimetría y asesoría integral de imagen personal dirigido por Cristina Barriga.",
-      "url": "https://[dominio]/",
-      "founder": { "@id": "https://[dominio]/#cristina-barriga" },
+      "url": "https://www.codigocolor.es/",
+      "founder": { "@id": "https://www.codigocolor.es/#cristina-barriga" },
       "areaServed": ["Madrid", "España", "Online"],
       "knowsLanguage": ["es", "en", "it"]
     },
     {
       "@type": "Person",
-      "@id": "https://[dominio]/#cristina-barriga",
+      "@id": "https://www.codigocolor.es/#cristina-barriga",
       "name": "Cristina Pilar Barriga Ramos",
       "alternateName": "Cristina Barriga",
       "jobTitle": "Directora de Código Color · especialista en colorimetría e imagen personal",
@@ -327,38 +369,67 @@ twitter:image        /assets/img/home/og/codigo-color-og-1200x630.webp
       ],
       "sameAs": [
         "https://cristinabarriga.com/",
-        "https://cristinabarriga.com/bio/"
+        "https://cristinabarriga.com/bio/",
+        "https://www.linkedin.com/in/cristina-barriga/",
+        "https://www.amazon.com/author/cristinabarriga"
       ]
-      /* PENDIENTE confirmar antes de publicar (D.4 §1):
-         "https://www.linkedin.com/in/cristinabarriga",
-         "https://www.amazon.es/stores/author/B0FJ7FC157" */
     },
     {
       "@type": "Service",
-      "@id": "https://[dominio]/#servicio-diagnostico",
+      "@id": "https://www.codigocolor.es/#servicio-diagnostico",
       "name": "Diagnóstico cromático Código Color",
       "serviceType": "Colorimetría y asesoría integral de imagen personal",
-      "provider": { "@id": "https://[dominio]/#organization" },
+      "provider": { "@id": "https://www.codigocolor.es/#organization" },
       "areaServed": ["Madrid", "Online"],
-      "description": "Análisis cromático e imagen personal que estudia subtono, contraste facial, luminosidad e intensidad para construir una paleta personal aplicable a maquillaje, ropa, cabello e imagen profesional."
+      "description": "Análisis cromático e imagen personal que estudia subtono, contraste facial, luminosidad e intensidad para construir una paleta personal aplicable a maquillaje, ropa, cabello e imagen profesional.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Código Color",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Online Express",
+            "price": "180",
+            "priceCurrency": "EUR",
+            "category": "Diagnóstico online",
+            "description": "Diagnóstico de color por videollamada (60-90 min): análisis preliminar, paleta orientativa, recomendaciones de color y PDF resumen."
+          },
+          {
+            "@type": "Offer",
+            "name": "Código Color Signature",
+            "price": "590",
+            "priceCurrency": "EUR",
+            "category": "Presencial Madrid",
+            "description": "Sesión presencial en Madrid (3-4 h): colorimetría completa, visagismo, estudio facial, paleta personalizada, carta digital, recomendaciones de maquillaje, cabello y accesorios e informe personalizado."
+          },
+          {
+            "@type": "Offer",
+            "name": "Código Color Elite",
+            "price": "1290",
+            "priceCurrency": "EUR",
+            "category": "Imagen integral",
+            "description": "Dos sesiones: todo lo de Signature más estilo personal, silueta, vestuario, personal shopping estratégico, revisión de armario (presencial o remota) y dossier premium completo."
+          }
+        ]
+      }
     },
     {
       "@type": "WebSite",
-      "@id": "https://[dominio]/#website",
-      "url": "https://[dominio]/",
+      "@id": "https://www.codigocolor.es/#website",
+      "url": "https://www.codigocolor.es/",
       "name": "Código Color",
       "inLanguage": "es-ES",
-      "publisher": { "@id": "https://[dominio]/#organization" }
+      "publisher": { "@id": "https://www.codigocolor.es/#organization" }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://[dominio]/" }
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.codigocolor.es/" }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://[dominio]/#faq",
+      "@id": "https://www.codigocolor.es/#faq",
       "mainEntity": "→ generar desde las 12 FAQ priorizadas (sección D) con su texto de faq-bank.md"
     }
   ]
@@ -446,11 +517,13 @@ Contenido completo en el archivo raíz `llms.txt` (artefacto hermano). Resumen: 
 - Schema JSON-LD (sección E) en PHP del child theme, no en Elementor.
 - ALT/caption (sección H y doc 08) en cada imagen.
 
-### J.3 Bloqueos que se mantienen
+### J.3 Estado de pendientes
 
-1. **Aprobación del cliente** de Fases 0-4.
-2. **URL final de LinkedIn** y **verificación de Amazon Author** antes de añadirlos a `sameAs` (D.4 §1).
-3. **Dominio definitivo** para sustituir `[dominio]` en schema, OG y `llms.txt`.
-4. **Confirmar precio/duración exactos** de la sesión antes de afirmarlos en FAQs transaccionales (ahora redactadas sin cifras inventadas).
+- ✅ **Dominio confirmado:** `www.codigocolor.es` (aplicado en schema, OG y `llms.txt`).
+- ✅ **LinkedIn confirmado:** `/in/cristina-barriga/` (en `sameAs`).
+- ✅ **Amazon Author confirmado:** `/author/cristinabarriga` (en `sameAs`).
+- ✅ **Precios y duraciones confirmados:** Online Express 180 € (60-90 min) · Signature 590 € (3-4 h) · Elite 1.290 € (2 sesiones) · Tarjeta regalo desde 590 €. Aplicados en módulo S, schema `OfferCatalog` y FAQs.
+- ⏳ **Aprobación del cliente** de Fases 0-4.
+- ⏳ **Experiencia PRIVATE (2.500 €):** documentada y **aparcada** (no visible en la landing por decisión de mantener 3 paquetes). Lista para activar como 4ª modalidad o servicio "a consulta" cuando se decida.
 
 > **Siguiente fase:** FASE 5 — Diseño en Elementor, una vez aprobada esta Fase 4.

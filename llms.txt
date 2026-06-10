@@ -35,16 +35,17 @@ Cristina Barriga dirige Código Color desde una mirada técnica, estética y ana
 4. Construcción de la paleta personal.
 5. Aplicación a maquillaje, ropa, cabello, fotografía e imagen profesional, con autonomía para la persona.
 
-## Servicios
+## Servicios y precios
 
-- Diagnóstico cromático (online y presencial en Madrid).
-- Asesoría integral de imagen personal.
-- Aplicación al maquillaje real (bases, correctores, labiales, sombras, coloretes según subtono y contraste).
-- Formación en colorimetría y cursos de asesoría de imagen (línea futura).
+- **Online Express — 180 €** (60-90 min, videollamada): análisis preliminar, paleta orientativa, recomendaciones de color y PDF resumen.
+- **Código Color Signature — 590 €** (3-4 h, presencial en Madrid): colorimetría completa, visagismo, estudio facial, paleta personalizada, carta digital, recomendaciones de maquillaje, cabello y accesorios e informe personalizado.
+- **Código Color Elite — 1.290 €** (2 sesiones): todo lo de Signature más estilo personal, silueta, vestuario, personal shopping estratégico, revisión de armario y dossier premium.
+- **Tarjeta regalo — desde 590 €.**
+- Formación en colorimetría y cursos de asesoría de imagen: línea futura.
 
 ## Páginas clave
 
-- Inicio / hub: https://[dominio]/
+- Inicio / hub: https://www.codigocolor.es/
 - (Futuras) /colorimetria-madrid/ · /estaciones/ · /cristina-barriga/ · /metodo-codigo-color/ · /formacion-colorimetria/
 
 ## Qué NO es Código Color

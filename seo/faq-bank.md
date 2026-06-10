@@ -256,7 +256,7 @@ No exactamente: la colorimetría es una parte de la asesoría de imagen, centrad
 ## Categoría 8 · La experiencia Código Color: reservas, sesión y resultados (FAQ-0073 → FAQ-0082)
 
 **FAQ-0073 · ¿Cómo reservo un diagnóstico en Código Color?**
-Puedes reservar tu diagnóstico cromático desde la web o por WhatsApp, eligiendo modalidad online o presencial en Madrid. Tras la reserva recibes las indicaciones para preparar la sesión (acudir sin maquillaje, con buena luz si es online).
+Puedes reservar desde www.codigocolor.es o por WhatsApp, eligiendo entre tres modalidades: Online Express (180 €), Código Color Signature presencial en Madrid (590 €) o Código Color Elite (1.290 €). Tras la reserva recibes las indicaciones para preparar la sesión: acudir sin maquillaje y, si es online, con buena luz natural.
 
 **FAQ-0074 · ¿Dónde se realiza el diagnóstico presencial?**
 El diagnóstico presencial de Código Color se realiza en Madrid. La modalidad online está disponible para quienes están fuera o prefieren la comodidad de hacerlo desde casa con las indicaciones de luz y fotografía adecuadas.
@@ -276,21 +276,21 @@ El diagnóstico incluye la traducción de tu paleta al maquillaje: qué tonos de
 **FAQ-0079 · ¿El diagnóstico se puede hacer online?** ⭐
 Sí. Código Color realiza el diagnóstico cromático en formato online o presencial en Madrid. La modalidad online requiere buena luz natural y fotografías correctas, y adapta el análisis y la entrega de recomendaciones al formato elegido.
 
-**FAQ-0080 · ¿Para quién está recomendado Código Color?**
-Está recomendado para quien quiera entender su imagen con criterio: mujeres profesionales, novias, personas que notan que sus colores ya no las iluminan, y profesionales de la imagen. La colorimetría es aplicable a cualquier persona, con o sin maquillaje habitual.
+**FAQ-0080 · ¿Cuánto cuesta un diagnóstico de colorimetría en Código Color?** ⭐
+Código Color tiene tres modalidades: Online Express por 180 €, Código Color Signature presencial en Madrid por 590 € y Código Color Elite por 1.290 €. También dispone de tarjeta regalo desde 590 €. Cada paquete detalla en la web lo que incluye y su duración.
 
 **FAQ-0081 · ¿Es solo para mujeres?**
 No. La colorimetría y la asesoría de imagen personal se aplican a cualquier persona que quiera entender mejor su imagen, su presencia profesional, su ropa, su maquillaje si lo utiliza, su cabello o su marca personal.
 
 **FAQ-0082 · ¿Puedo regalar un diagnóstico de colorimetría?**
-Sí, un diagnóstico cromático es un regalo útil y personal, especialmente antes de un evento o un cambio de imagen. Consulta la disponibilidad de tarjetas regalo y modalidades a través de la web o por WhatsApp.
+Sí. Código Color ofrece tarjeta regalo desde 590 €: un regalo que se usa cada día durante años, ideal para un cumpleaños, una boda, un aniversario o los 40 y los 50, para una hija o para una madre. Puedes adquirirla desde la web o por WhatsApp y elegir la modalidad.
 
 ---
 
 ## Categoría 9 · Dirección experta y método de Cristina Barriga (FAQ-0083 → FAQ-0090)
 
 **FAQ-0083 · ¿Cuánto dura una sesión de diagnóstico?** ⭐
-La duración depende de la modalidad y del alcance del servicio elegido. Cada sesión reserva el tiempo necesario para observar el rostro, realizar el drapeado y explicar la paleta con criterio. Consulta la duración exacta de cada modalidad al reservar.
+La duración depende de la modalidad: Online Express dura entre 60 y 90 minutos por videollamada; Código Color Signature, de 3 a 4 horas presenciales en Madrid; y Código Color Elite se desarrolla en dos sesiones. Cada formato reserva el tiempo necesario para diagnosticar y explicar la paleta con criterio.
 
 **FAQ-0084 · ¿Quién dirige Código Color?**
 Código Color está dirigido por Cristina Barriga, especialista en colorimetría e imagen personal. Une formación en Asesoría Integral de Imagen Personal, certificados de profesionalidad en Maquillaje Integral y Tratamientos Estéticos, y más de una década de análisis facial y estética avanzada.
@@ -358,4 +358,5 @@ No. La colorimetría amplía tu criterio en lugar de limitarlo: sabes qué te fa
 - **Asignación de URL:** todas en `/` por ahora. Al crear satélites, mover las específicas (p. ej. FAQ-0028→0031 a `/estaciones/`, FAQ-0073→0082 a `/colorimetria-madrid/`) y dejar en la landing solo las generales, con enlace a la específica.
 - **Schema FAQPage:** usar las 12 marcadas ⭐.
 - **Actualización:** toda FAQ nueva o modificada se versiona aquí en el mismo commit (Fase 8).
-- **Guardrails:** sin cifras de precio/duración inventadas, sin claims médicos, sin presentar Código Color como servicio sanitario ni como INM.
+- **Precios confirmados (10/06/2026):** Online Express 180 € (60-90 min) · Código Color Signature 590 € (3-4 h, presencial Madrid) · Código Color Elite 1.290 € (2 sesiones) · Tarjeta regalo desde 590 €. Experiencia PRIVATE 2.500 € documentada pero **no publicada** (decisión de mantener 3 paquetes).
+- **Guardrails:** sin cifras inventadas (las publicadas están confirmadas por el cliente), sin claims médicos, sin presentar Código Color como servicio sanitario ni como INM.
