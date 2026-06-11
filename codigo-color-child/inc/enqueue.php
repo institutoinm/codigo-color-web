@@ -25,6 +25,9 @@ function cc_enqueue_assets() {
 	wp_enqueue_script( 'cc-motion-config', CC_URI . '/assets/js/cc-motion-config.js', array(), cc_v( '/assets/js/cc-motion-config.js' ), true );
 	wp_enqueue_script( 'cc-fallbacks', CC_URI . '/assets/js/cc-fallbacks.js', array(), cc_v( '/assets/js/cc-fallbacks.js' ), true );
 
+	// Expone la URL del tema a JS (para la carga dinámica del Orbe en V1.5).
+	wp_add_inline_script( 'cc-motion-config', 'window.CC_THEME_URI=' . wp_json_encode( esc_url_raw( CC_URI ) ) . ';', 'after' );
+
 	if ( ! cc_is_landing() ) {
 		return;
 	}

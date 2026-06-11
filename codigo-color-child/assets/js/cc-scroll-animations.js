@@ -65,10 +65,26 @@
       });
     }
 
-    // --- HOOK ORBE CROMÁTICO (V1.5) — NO ACTIVO EN V1 ---
-    // if (cfg.flags && cfg.flags.orb && caps.webgl) {
-    //   import('./cc-color-orb.js').then(function (m) { m.initOrb(); });
-    // }
+    // --- ORBE CROMÁTICO (V1.5) ---
+    // Implementado pero GATEADO por flags.orb (false en V1). Solo se activa si:
+    // el flag está on, hay WebGL, no hay reduced-motion y three.module.js existe.
+    // GSAP gobierna el scroll y alimenta el progreso del Orbe (Fase 1 E.5).
+    if (cfg.flags && cfg.flags.orb && caps.webgl && !caps.reducedMotion && w.CC_THEME_URI) {
+      import(w.CC_THEME_URI + '/assets/js/cc-color-orb.js')
+        .then(function (orb) { return orb.initOrb(); })
+        .then(function (api) {
+          if (api && api.setProgress) {
+            gsap.to({ p: 0 }, {
+              p: 1, ease: 'none',
+              scrollTrigger: {
+                trigger: '.cc-hero', start: 'top top', end: 'bottom top', scrub: true,
+                onUpdate: function (self) { api.setProgress(self.progress); }
+              }
+            });
+          }
+        })
+        .catch(function () { /* three ausente o error: el gradiente CSS permanece */ });
+    }
 
     w.ScrollTrigger.refresh();
   });
