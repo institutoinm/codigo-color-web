@@ -1,0 +1,8 @@
+/* cc-benefits.css — Módulo 15 · Beneficios */
+.cc-benefits { background: var(--cc-blanco); }
+.cc-benefits__inner { max-width: var(--cc-content-width); margin-inline: auto; }
+.cc-benefits__list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--cc-gap-lg); margin-top: 2em; }
+.cc-benefits__item { max-width: 44ch; }
+.cc-benefits__item strong { color: var(--cc-tinta); }
+.cc-benefits .cc-btn { margin-top: 2.5em; }
+@media (max-width: 767px) { .cc-benefits__list { grid-template-columns: 1fr; } }

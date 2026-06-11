@@ -1,0 +1,184 @@
+/* ==========================================================================
+   cc-base.css — Base premium del sistema cc-* (Fase 5/6, V1)
+   Reset suave, tipografía, secciones, botones, placeholders, utilidades,
+   estado base de animación (SEO-safe) y fallback del Orbe.
+   ========================================================================== */
+
+/* --- Reset suave --- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+img,
+picture,
+video { max-width: 100%; height: auto; display: block; }
+
+::selection { background: var(--cc-oro-claro); color: var(--cc-tinta); }
+
+/* --- Tipografía base (scoped a secciones cc-* para no pelear con Elementor) --- */
+[class*="cc-"] {
+  font-family: var(--cc-font-text);
+}
+
+[class*="cc-"] h1,
+[class*="cc-"] h2,
+[class*="cc-"] h3,
+[class*="cc-"] h4,
+.cc-display {
+  font-family: var(--cc-font-display);
+  font-weight: 500;
+  line-height: var(--cc-lh-display);
+  letter-spacing: var(--cc-tracking-display);
+  color: var(--cc-tinta);
+  margin: 0 0 0.4em;
+}
+
+.cc-display { font-size: var(--cc-fs-hero); }
+[class*="cc-"] h1 { font-size: var(--cc-fs-h1); }
+[class*="cc-"] h2 { font-size: var(--cc-fs-h2); }
+[class*="cc-"] h3 { font-size: var(--cc-fs-h3); }
+[class*="cc-"] h4 { font-size: var(--cc-fs-h4); }
+
+[class*="cc-"] p { line-height: var(--cc-lh-body); color: var(--cc-carbon); }
+
+.cc-lead { font-size: var(--cc-fs-lead); line-height: var(--cc-lh-body); color: var(--cc-carbon); }
+.cc-caption { font-size: var(--cc-fs-caption); letter-spacing: 0.02em; color: var(--cc-carbon); }
+.cc-eyebrow,
+.cc-label {
+  font-size: var(--cc-fs-label);
+  text-transform: uppercase;
+  letter-spacing: var(--cc-tracking-label);
+  font-weight: 500;
+  color: var(--cc-oro-prof);
+}
+.cc-quote {
+  font-family: var(--cc-font-display);
+  font-style: italic;
+  font-size: var(--cc-fs-h3);
+  line-height: 1.3;
+  color: var(--cc-oro-prof);
+}
+
+/* Ancho de medida de texto cómodo */
+.cc-measure { max-width: var(--cc-measure-px); }
+
+/* --- Secciones: ritmo vertical y centrado de contenido --- */
+.cc-hero, .cc-manifesto, .cc-editorial, .cc-definition, .cc-service,
+.cc-palette-grid, .cc-method, .cc-universe, .cc-season-card, .cc-dimensions,
+.cc-benefits, .cc-application, .cc-reveal, .cc-video-frame, .cc-authority,
+.cc-for-who, .cc-pricing, .cc-training, .cc-faq, .cc-cta, .cc-trust,
+.cc-footer-links {
+  padding-block: var(--cc-space-section-y);
+  padding-inline: var(--cc-space-section-x);
+}
+
+/* Contenedor interno máximo */
+.cc-container { width: 100%; max-width: var(--cc-content-width); margin-inline: auto; }
+
+/* --- Botones --- */
+.cc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-family: var(--cc-font-text);
+  font-size: var(--cc-fs-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--cc-tracking-label);
+  text-decoration: none;
+  padding: 1.1em 2.2em;
+  border-radius: var(--cc-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--cc-dur-fast) var(--cc-ease),
+              color var(--cc-dur-fast) var(--cc-ease),
+              border-color var(--cc-dur-fast) var(--cc-ease),
+              transform var(--cc-dur-fast) var(--cc-ease);
+}
+.cc-btn--primary { background: var(--cc-oro); color: var(--cc-tinta); }
+.cc-btn--primary:hover { background: var(--cc-oro-prof); color: var(--cc-blanco); }
+.cc-btn--secondary { background: transparent; color: var(--cc-tinta); border-color: var(--cc-tinta); }
+.cc-btn--secondary:hover { background: var(--cc-tinta); color: var(--cc-crudo); }
+.cc-btn--tertiary {
+  padding: 0.4em 0; background: none; color: var(--cc-tinta);
+  border-bottom: 1px solid var(--cc-oro); border-radius: 0; letter-spacing: 0.04em;
+}
+.cc-btn--tertiary:hover { color: var(--cc-oro-prof); }
+.cc-btn--whatsapp { background: var(--cc-tinta); color: var(--cc-crudo); }
+.cc-btn--whatsapp:hover { background: var(--cc-carbon); }
+
+/* --- Placeholders visuales elegantes (cuando faltan assets, Fase 6 V1) --- */
+.cc-placeholder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 120% at 30% 20%, var(--cc-oro-claro) 0%, transparent 55%),
+    linear-gradient(135deg, var(--cc-gris) 0%, var(--cc-crudo) 100%);
+  color: var(--cc-oro-prof);
+  overflow: hidden;
+}
+.cc-placeholder::after {
+  content: attr(data-label);
+  font-size: var(--cc-fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--cc-tracking-label);
+  opacity: 0.7;
+}
+.cc-placeholder--16x9 { aspect-ratio: 16 / 9; }
+.cc-placeholder--4x5 { aspect-ratio: 4 / 5; }
+.cc-placeholder--1x1 { aspect-ratio: 1 / 1; }
+.cc-placeholder--21x9 { aspect-ratio: 21 / 9; }
+
+/* --- Grids utilitarios --- */
+.cc-grid { display: grid; gap: var(--cc-gap); }
+.cc-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.cc-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.cc-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) { .cc-grid--3, .cc-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) { .cc-grid--2, .cc-grid--3, .cc-grid--4 { grid-template-columns: 1fr; } }
+
+/* --- ORBE CROMÁTICO: fallback estático (V1). El Three.js es V1.5, NO activo. --- */
+.cc-color-orb {
+  position: absolute;
+  inset: 0;
+  z-index: var(--cc-z-orb);
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side at 50% 45%,
+      var(--cc-oro-claro) 0%,
+      var(--cc-oro) 35%,
+      rgba(196, 168, 130, 0.35) 60%,
+      transparent 72%);
+  filter: blur(2px);
+  animation: cc-orb-breathe 8s ease-in-out infinite;
+}
+@keyframes cc-orb-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-color-orb { animation: none; }
+}
+
+/* --- Estado base de animación: SEO-safe y sin FOUC ---
+   El contenido SIEMPRE está en el DOM y visible por defecto.
+   Solo cuando JS confirma capacidades, el body recibe .cc-anim y se ocultan
+   los elementos marcados para revelarse (cc-scroll-animations.js).            */
+.cc-anim [data-cc-reveal] { opacity: 0; transform: translateY(24px); }
+.cc-anim [data-cc-reveal].is-visible { opacity: 1; transform: none; }
+[data-cc-reveal] { transition: opacity var(--cc-dur) var(--cc-ease), transform var(--cc-dur) var(--cc-ease); }
+
+/* --- Accesibilidad --- */
+:where(a, button, .cc-btn):focus-visible {
+  outline: 2px solid var(--cc-oro-prof);
+  outline-offset: 3px;
+}
+.cc-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}

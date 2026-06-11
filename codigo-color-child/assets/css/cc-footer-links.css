@@ -1,0 +1,15 @@
+/* cc-footer-links.css — Módulo 31 · Enlaces a páginas satélite (pre-footer) */
+.cc-footer-links { background: var(--cc-gris); }
+.cc-footer-links__inner { max-width: var(--cc-content-width); margin-inline: auto; }
+.cc-footer-links__grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--cc-gap); margin-top: 2em;
+}
+.cc-footer-links__item { text-decoration: none; color: var(--cc-tinta); }
+.cc-footer-links__thumb {
+  aspect-ratio: 1 / 1; border-radius: var(--cc-radius); overflow: hidden; margin-bottom: 0.8em;
+  transition: transform var(--cc-dur-fast) var(--cc-ease);
+}
+.cc-footer-links__item:hover .cc-footer-links__thumb { transform: translateY(-4px); }
+.cc-footer-links__label { font-size: var(--cc-fs-label); text-transform: uppercase; letter-spacing: 0.04em; }
+@media (max-width: 1024px) { .cc-footer-links__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 767px) { .cc-footer-links__grid { grid-template-columns: repeat(2, 1fr); } }

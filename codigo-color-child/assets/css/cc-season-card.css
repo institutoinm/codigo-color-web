@@ -1,0 +1,20 @@
+/* cc-season-card.css — Módulos 10-13 · Estaciones (spread editorial) */
+.cc-season-card { background: var(--cc-blanco); }
+.cc-season-card--dark { background: var(--cc-tinta); color: var(--cc-crudo); }
+.cc-season-card--dark h3 { color: var(--cc-crudo); }
+.cc-season-card__row {
+  display: flex; align-items: stretch; gap: var(--cc-gap-lg);
+  max-width: var(--cc-content-width); margin-inline: auto;
+}
+.cc-season-card__swatch { flex: 0 0 32%; border-radius: var(--cc-radius); min-height: 320px; }
+.cc-season-card__media { flex: 1 1 34%; }
+.cc-season-card__text { flex: 1 1 34%; align-self: center; max-width: 40ch; }
+.cc-season-card__swatch--primavera { background: var(--cc-primavera); }
+.cc-season-card__swatch--verano { background: var(--cc-verano); }
+.cc-season-card__swatch--otono { background: var(--cc-otono); }
+.cc-season-card__swatch--invierno { background: var(--cc-invierno); }
+@media (max-width: 767px) {
+  .cc-season-card__row { flex-direction: column; gap: var(--cc-gap); }
+  .cc-season-card__swatch { min-height: 160px; }
+  .cc-season-card__media, .cc-season-card__text, .cc-season-card__swatch { width: 100%; flex-basis: auto; }
+}

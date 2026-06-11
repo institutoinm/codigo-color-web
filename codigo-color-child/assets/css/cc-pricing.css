@@ -1,0 +1,37 @@
+/* cc-pricing.css — Módulo S · Servicios y precios (3 paquetes + tarjeta regalo) */
+.cc-pricing { background: var(--cc-gris); }
+.cc-pricing__inner { max-width: var(--cc-content-width); margin-inline: auto; text-align: center; }
+.cc-pricing__cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--cc-gap-lg);
+  margin: 3em 0 0; text-align: left; align-items: stretch;
+}
+.cc-pricing__card {
+  display: flex; flex-direction: column; padding: 2em 1.8em;
+  background: var(--cc-blanco); border: 1px solid rgba(26,26,26,0.08);
+  border-radius: var(--cc-radius); transition: transform var(--cc-dur-fast) var(--cc-ease), box-shadow var(--cc-dur-fast) var(--cc-ease);
+}
+.cc-pricing__card:hover { transform: translateY(-6px); box-shadow: var(--cc-shadow-card); }
+.cc-pricing__card--featured { border-color: var(--cc-oro); box-shadow: var(--cc-shadow-soft); }
+.cc-pricing__badge {
+  align-self: flex-start; font-size: var(--cc-fs-caption); text-transform: uppercase;
+  letter-spacing: var(--cc-tracking-label); color: var(--cc-tinta);
+  background: var(--cc-oro-claro); padding: 0.35em 0.8em; border-radius: var(--cc-radius); margin-bottom: 1em;
+}
+.cc-pricing__name { font-size: var(--cc-fs-h4); margin-bottom: 0.1em; }
+.cc-pricing__price { font-family: var(--cc-font-display); font-size: 2.4rem; color: var(--cc-oro-prof); line-height: 1; }
+.cc-pricing__meta { margin: 0.4em 0 1.2em; }
+.cc-pricing__features { list-style: none; padding: 0; margin: 0 0 1.6em; flex: 1; }
+.cc-pricing__features li { position: relative; padding-left: 1.4em; margin-bottom: 0.6em; line-height: 1.45; font-size: 0.95rem; }
+.cc-pricing__features li::before { content: "—"; position: absolute; left: 0; color: var(--cc-oro); }
+.cc-pricing__card .cc-btn { margin-top: auto; }
+/* Tarjeta regalo */
+.cc-pricing__gift {
+  margin-top: var(--cc-gap-lg); padding: 2.5em; text-align: center;
+  background: linear-gradient(150deg, var(--cc-crudo), var(--cc-oro-claro)); border-radius: var(--cc-radius);
+}
+.cc-pricing__gift .cc-lead { font-family: var(--cc-font-display); font-style: italic; font-size: var(--cc-fs-h3); color: var(--cc-tinta); }
+.cc-pricing__legal { margin-top: 1.5em; }
+@media (max-width: 1024px) {
+  .cc-pricing__cards { grid-template-columns: 1fr; max-width: 540px; margin-inline: auto; }
+  .cc-pricing__card--featured { order: -1; } /* la destacada primero en mobile/tablet */
+}

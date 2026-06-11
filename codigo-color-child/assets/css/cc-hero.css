@@ -1,0 +1,24 @@
+/* cc-hero.css — Módulo 1 · Hero editorial inmersivo */
+.cc-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background: var(--cc-crudo);
+  overflow: hidden;
+}
+.cc-hero__content { position: relative; z-index: var(--cc-z-content); max-width: 760px; }
+.cc-hero h1, .cc-hero .cc-display { font-size: var(--cc-fs-hero); margin-bottom: 0.3em; }
+.cc-hero .cc-lead { max-width: 46ch; margin-bottom: 2em; }
+.cc-hero__actions { display: flex; flex-wrap: wrap; gap: var(--cc-gap); align-items: center; }
+.cc-hero__microcopy { margin-top: 1.4em; }
+/* Contenedor del Orbe (fallback CSS en V1; Three.js en V1.5) */
+.cc-hero .cc-color-orb {
+  inset: auto -8% 8% auto;
+  width: clamp(280px, 42vw, 620px);
+  height: clamp(280px, 42vw, 620px);
+}
+@media (max-width: 767px) {
+  .cc-hero { min-height: 88vh; align-items: flex-end; padding-bottom: 14vh; }
+  .cc-hero .cc-color-orb { inset: 4% 50% auto auto; transform: translateX(50%); width: 70vw; height: 70vw; }
+}

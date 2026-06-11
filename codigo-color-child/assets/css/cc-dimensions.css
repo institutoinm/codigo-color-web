@@ -1,0 +1,10 @@
+/* cc-dimensions.css — Módulo 14 · Las 4 dimensiones del color (2x2) */
+.cc-dimensions { background: var(--cc-gris); }
+.cc-dimensions__grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--cc-gap-lg);
+  max-width: 1040px; margin: 2.5em auto 0;
+}
+.cc-dimensions__item { padding: 1.5em; background: var(--cc-blanco); border-radius: var(--cc-radius); }
+.cc-dimensions__item h3 { font-size: var(--cc-fs-h4); margin-bottom: 0.3em; }
+.cc-dimensions__media { aspect-ratio: 1 / 1; margin-bottom: 1.2em; border-radius: var(--cc-radius); overflow: hidden; }
+@media (max-width: 767px) { .cc-dimensions__grid { grid-template-columns: 1fr; } }

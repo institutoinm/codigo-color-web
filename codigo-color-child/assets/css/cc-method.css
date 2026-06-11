@@ -1,0 +1,15 @@
+/* cc-method.css — Módulo 8 · Método paso a paso (con línea de progreso) */
+.cc-method { background: var(--cc-blanco); position: relative; }
+.cc-method__inner { max-width: 820px; margin-inline: auto; position: relative; }
+.cc-method__track { position: relative; padding-left: 2.5em; }
+.cc-method__progress {
+  position: absolute; left: 0.7em; top: 0; bottom: 0; width: 2px;
+  background: var(--cc-oro); transform: scaleY(0); transform-origin: top;
+}
+.cc-method__step { position: relative; padding-block: 1.4em; }
+.cc-method__num {
+  font-family: var(--cc-font-display); font-size: 2rem; color: var(--cc-oro-prof);
+  line-height: 1; display: block; margin-bottom: 0.3em;
+}
+.cc-method__step h3 { font-size: var(--cc-fs-h4); }
+@media (max-width: 767px) { .cc-method__track { padding-left: 1.8em; } }

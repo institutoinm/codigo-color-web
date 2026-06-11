@@ -1,0 +1,15 @@
+/* cc-application.css — Módulos 16-19 · Color aplicado (zigzag) */
+.cc-application { background: var(--cc-blanco); }
+.cc-application:nth-of-type(even) { background: var(--cc-crudo); }
+.cc-application__row {
+  display: flex; align-items: center; gap: var(--cc-gap-lg);
+  max-width: var(--cc-content-width); margin-inline: auto;
+}
+.cc-application--reverse .cc-application__row { flex-direction: row-reverse; }
+.cc-application__media { flex: 1 1 52%; }
+.cc-application__text { flex: 1 1 48%; max-width: 44ch; }
+@media (max-width: 767px) {
+  .cc-application__row,
+  .cc-application--reverse .cc-application__row { flex-direction: column; gap: var(--cc-gap); }
+  .cc-application__media, .cc-application__text { width: 100%; flex-basis: auto; }
+}

@@ -1,0 +1,13 @@
+/* cc-palette-grid.css — Módulo 7 · Experiencia interactiva de color */
+.cc-palette-grid { background: var(--cc-crudo); text-align: center; }
+.cc-palette-grid__grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+  max-width: 960px; margin: 2.5em auto 0; border-radius: var(--cc-radius); overflow: hidden;
+}
+.cc-palette-grid__swatch {
+  aspect-ratio: 1 / 1; border: none; cursor: pointer;
+  transition: transform var(--cc-dur-fast) var(--cc-ease), filter var(--cc-dur-fast) var(--cc-ease);
+  filter: saturate(0.92);
+}
+.cc-palette-grid__swatch.is-active { transform: scale(1.08); filter: saturate(1.08); z-index: 1; position: relative; }
+@media (max-width: 767px) { .cc-palette-grid__grid { grid-template-columns: repeat(4, 1fr); } }

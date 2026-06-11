@@ -1,0 +1,10 @@
+/* cc-definition.css — Módulo 5 · Qué es Código Color (capítulo, definición citable) */
+.cc-definition { background: var(--cc-gris); text-align: center; }
+.cc-definition__inner { max-width: 720px; margin-inline: auto; }
+.cc-definition .cc-lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--cc-tinta);
+  margin-block: 0.8em 1.4em;
+}
+.cc-definition p { margin-inline: auto; max-width: 60ch; }
+.cc-definition .cc-btn { margin-top: 2em; }

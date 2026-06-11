@@ -1,0 +1,14 @@
+/* cc-cta.css — Módulos 28-29 · CTA principal y cierre editorial */
+.cc-cta { text-align: center; }
+.cc-cta--primary { background: var(--cc-oro-claro); }
+.cc-cta--final { background: var(--cc-crudo); }
+.cc-cta__inner { max-width: 720px; margin-inline: auto; }
+.cc-cta__inner p { max-width: 52ch; margin-inline: auto; }
+.cc-cta__actions { display: flex; flex-wrap: wrap; gap: var(--cc-gap); justify-content: center; margin-top: 2em; }
+.cc-cta--final h2 {
+  font-family: var(--cc-font-display); font-style: italic;
+  font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2;
+}
+/* Orbe miniatura de firma en el cierre (fallback CSS, V1) */
+.cc-cta__orb { position: relative; width: 96px; height: 96px; margin: 0 auto 1.5em; }
+.cc-cta__orb .cc-color-orb { position: absolute; }

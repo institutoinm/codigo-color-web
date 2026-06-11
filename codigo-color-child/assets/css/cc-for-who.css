@@ -1,0 +1,12 @@
+/* cc-for-who.css — Módulo 24 · Para quién es */
+.cc-for-who { background: var(--cc-blanco); text-align: center; }
+.cc-for-who__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--cc-gap);
+  max-width: var(--cc-content-width); margin: 2.5em auto 0;
+}
+.cc-for-who__item { text-align: left; }
+.cc-for-who__media { aspect-ratio: 1 / 1; border-radius: var(--cc-radius); overflow: hidden; margin-bottom: 1em; }
+.cc-for-who__item h3 { font-size: var(--cc-fs-h4); }
+.cc-for-who__microcopy { margin-top: 2em; }
+@media (max-width: 1024px) { .cc-for-who__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 767px) { .cc-for-who__grid { grid-template-columns: 1fr; } }

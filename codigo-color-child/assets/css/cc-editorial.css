@@ -1,0 +1,19 @@
+/* cc-editorial.css — Módulos 3-4 · El Problema / La Solución (spread zigzag) */
+.cc-editorial { background: var(--cc-blanco); }
+.cc-editorial__row {
+  display: flex;
+  align-items: center;
+  gap: var(--cc-gap-lg);
+  max-width: var(--cc-content-width);
+  margin-inline: auto;
+}
+.cc-editorial__media { flex: 1 1 50%; }
+.cc-editorial__text { flex: 1 1 50%; max-width: 44ch; }
+.cc-editorial__text .cc-eyebrow { display: block; margin-bottom: 1em; }
+/* Variante invertida (módulo 4) para el ritmo zigzag */
+.cc-editorial--reverse .cc-editorial__row { flex-direction: row-reverse; }
+@media (max-width: 767px) {
+  .cc-editorial__row,
+  .cc-editorial--reverse .cc-editorial__row { flex-direction: column; gap: var(--cc-gap); }
+  .cc-editorial__media, .cc-editorial__text { flex-basis: auto; width: 100%; }
+}

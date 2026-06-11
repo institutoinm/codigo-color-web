@@ -1,0 +1,17 @@
+/*
+Theme Name: Código Color Child
+Theme URI: https://www.codigocolor.es
+Description: Child theme ligero de Hello Elementor para Código Color. Sistema visual modular cc-*, preparado para animaciones GSAP y para el Orbe Cromático (V1.5, documentado pero NO activo en V1). No contiene contenido: textos, imágenes, precios y FAQs se editan en Elementor.
+Author: Código Color
+Template: hello-elementor
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Text Domain: codigo-color-child
+*/
+
+/*
+  Este archivo solo contiene la cabecera del tema (requisito de WordPress).
+  El sistema visual vive en assets/css/cc-*.css.
+  No añadir estilos aquí.
+*/

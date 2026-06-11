@@ -1,0 +1,76 @@
+/* ==========================================================================
+   cc-tokens.css — Fuente única de verdad del sistema visual (Fase 1 / Fase 5)
+   Variables de paleta, tipografía, escala, espaciado, motion y layout.
+   ========================================================================== */
+
+:root {
+  /* --- Paleta neutra + oro (90% de la página) --- */
+  --cc-blanco: #FFFFFF;
+  --cc-crudo: #FAF8F5;
+  --cc-gris: #F2F0ED;
+  --cc-tinta: #1A1A1A;
+  --cc-carbon: #2D2D2D;
+  --cc-oro: #C4A882;
+  --cc-oro-prof: #8B6F47;
+  --cc-oro-claro: #E8D5B7;
+
+  /* --- Colores estacionales (solo narrativa de estaciones) --- */
+  --cc-primavera: #D4A853;
+  --cc-verano: #8BA7C4;
+  --cc-otono: #C4622D;
+  --cc-invierno: #2D3E5C;
+
+  /* --- Tipografía (con fallback robusto si la webfont no carga) --- */
+  --cc-font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --cc-font-text: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* --- Escala tipográfica fluida (Fase 1 A.4) --- */
+  --cc-fs-hero: clamp(3rem, 8vw, 7rem);
+  --cc-fs-h1: clamp(2.5rem, 5vw, 3.5rem);   /* ~40-56px */
+  --cc-fs-h2: clamp(2rem, 4vw, 2.75rem);    /* ~32-44px */
+  --cc-fs-h3: clamp(1.625rem, 3vw, 2rem);   /* ~26-32px */
+  --cc-fs-h4: 1.5rem;                        /* 24px */
+  --cc-fs-lead: 1.125rem;                    /* 18px */
+  --cc-fs-body: 1rem;                        /* 16px */
+  --cc-fs-caption: 0.75rem;                  /* 12px */
+  --cc-fs-label: 0.8125rem;                  /* 13px */
+
+  --cc-lh-display: 1.08;
+  --cc-lh-body: 1.6;
+  --cc-tracking-display: -0.02em;
+  --cc-tracking-label: 0.08em;
+  --cc-measure: 68ch;            /* ancho máximo de línea de texto */
+  --cc-measure-px: 680px;
+
+  /* --- Espaciado --- */
+  --cc-space-section-y: clamp(80px, 12vh, 200px);
+  --cc-space-section-x: clamp(20px, 6vw, 120px);
+  --cc-gap: clamp(16px, 3vw, 24px);
+  --cc-gap-lg: clamp(24px, 5vw, 64px);
+  --cc-radius: 2px;
+
+  /* --- Layout --- */
+  --cc-content-width: 1280px;
+
+  /* --- Sombras (muy contenidas, lujo discreto) --- */
+  --cc-shadow-soft: 0 10px 40px -20px rgba(26, 26, 26, 0.25);
+  --cc-shadow-card: 0 20px 60px -30px rgba(26, 26, 26, 0.35);
+
+  /* --- Motion --- */
+  --cc-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --cc-dur: 0.6s;
+  --cc-dur-fast: 0.25s;
+
+  /* --- Z-index --- */
+  --cc-z-orb: 0;
+  --cc-z-content: 1;
+  --cc-z-sticky: 50;
+}
+
+/* Respeta la preferencia del sistema: sin movimiento, sin duraciones. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --cc-dur: 0s;
+    --cc-dur-fast: 0s;
+  }
+}

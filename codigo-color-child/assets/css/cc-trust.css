@@ -1,0 +1,12 @@
+/* cc-trust.css — Módulo 30 · Confianza (señales verificables, sin testimonios) */
+.cc-trust { background: var(--cc-blanco); }
+.cc-trust__row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--cc-gap-lg);
+  max-width: var(--cc-content-width); margin-inline: auto; text-align: center;
+}
+.cc-trust__item h3 { font-size: var(--cc-fs-h4); }
+.cc-trust__note {
+  max-width: 60ch; margin: 2.5em auto 0; text-align: center;
+  font-size: var(--cc-fs-caption); color: var(--cc-carbon); opacity: 0.85;
+}
+@media (max-width: 767px) { .cc-trust__row { grid-template-columns: 1fr; gap: var(--cc-gap); } }

@@ -1,0 +1,13 @@
+/* cc-manifesto.css — Módulo 2 · Manifiesto */
+.cc-manifesto { background: var(--cc-crudo); text-align: center; }
+.cc-manifesto__inner { max-width: 22ch; margin-inline: auto; }
+.cc-manifesto h2,
+.cc-manifesto .cc-manifesto__line {
+  font-family: var(--cc-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4.5vw, 3.25rem);
+  line-height: 1.18;
+  color: var(--cc-tinta);
+}
+.cc-manifesto p { margin-top: 1.5em; color: var(--cc-oro-prof); }

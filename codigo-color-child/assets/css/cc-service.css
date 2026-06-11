@@ -1,0 +1,20 @@
+/* cc-service.css — Módulo 6 · Diagnóstico cromático (spread + inclusiones) */
+.cc-service { background: var(--cc-blanco); }
+.cc-service__row {
+  display: flex; gap: var(--cc-gap-lg); align-items: center;
+  max-width: var(--cc-content-width); margin-inline: auto;
+}
+.cc-service__media { flex: 1 1 52%; }
+.cc-service__body { flex: 1 1 48%; max-width: 46ch; }
+.cc-service__list { list-style: none; padding: 0; margin: 1.5em 0; }
+.cc-service__list li {
+  position: relative; padding-left: 1.6em; margin-bottom: 0.9em; line-height: 1.5;
+}
+.cc-service__list li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 0.6em; height: 0.6em; border-radius: 50%; background: var(--cc-oro);
+}
+@media (max-width: 767px) {
+  .cc-service__row { flex-direction: column; gap: var(--cc-gap); }
+  .cc-service__media, .cc-service__body { width: 100%; flex-basis: auto; }
+}

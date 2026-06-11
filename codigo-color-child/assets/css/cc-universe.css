@@ -1,0 +1,19 @@
+/* cc-universe.css — Módulo 9 · Universo cromático estacional (capítulo oscuro) */
+.cc-universe { background: var(--cc-tinta); color: var(--cc-crudo); text-align: center; }
+.cc-universe h2 { color: var(--cc-crudo); }
+.cc-universe p { color: rgba(250, 248, 245, 0.78); max-width: 56ch; margin-inline: auto; }
+.cc-universe__seasons {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--cc-gap);
+  max-width: var(--cc-content-width); margin: 3em auto 0;
+}
+.cc-universe__season {
+  aspect-ratio: 3 / 4; border-radius: var(--cc-radius); position: relative;
+  display: flex; align-items: flex-end; padding: 1.2em; color: var(--cc-blanco);
+  text-decoration: none; overflow: hidden; transition: transform var(--cc-dur-fast) var(--cc-ease);
+}
+.cc-universe__season:hover { transform: translateY(-4px); }
+.cc-universe__season--primavera { background: linear-gradient(160deg, var(--cc-primavera), #b8902f); }
+.cc-universe__season--verano { background: linear-gradient(160deg, var(--cc-verano), #5d7fa3); }
+.cc-universe__season--otono { background: linear-gradient(160deg, var(--cc-otono), #8f4520); }
+.cc-universe__season--invierno { background: linear-gradient(160deg, var(--cc-invierno), #1a2740); }
+@media (max-width: 767px) { .cc-universe__seasons { grid-template-columns: repeat(2, 1fr); } }
