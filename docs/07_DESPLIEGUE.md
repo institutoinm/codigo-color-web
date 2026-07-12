@@ -4,8 +4,71 @@
 > **Estado:** Plan/guía entregada, pendiente de aprobación. La **ejecución** (crear el workflow, dar de alta secrets, primer deploy) se hace tras aprobar este documento y con accesos confirmados.
 > **Regla:** todo cambio de **código** pasa por GitHub → SiteGround. El **contenido** (textos, imágenes, precios, FAQs) se edita en Elementor y **no** pasa por este flujo.
 > **Depende de:** FASE 0 (decisión de despliegue: GitHub Actions → SSH/rsync → SiteGround con staging y rollback; caché en cascada Cloudflare/SiteGround/Elementor), FASE 6 V1 (child theme `codigo-color-child`).
+> **⚠️ Actualización de hosting (2026):** el hosting real es **Hostinger Cloud Startup** (no SiteGround), con el dominio en **GoDaddy**, **sin desplegar** y **DNS sin conectar**. Las menciones a SiteGround/Cloudflare de este documento se sustituyen por su equivalente Hostinger descrito en la **§0**. El resto del flujo (Git, staging, rollback, purga en cascada, checklist) se mantiene conceptualmente.
 > **Rol asumido:** CTO + DevOps WordPress.
 > **Objetivo:** que una persona poco técnica pueda desplegar siguiendo pasos, y que el sistema sea reversible.
+
+---
+
+## 0. STACK REAL: HOSTINGER CLOUD STARTUP (sustituye a SiteGround)
+
+**Estado de partida:** dominio `codigocolor.es` registrado en **GoDaddy**, **sin desplegar** y **DNS sin conectar**. Hosting **Hostinger Cloud Startup** (incluye SSH, Git, staging, LiteSpeed Cache, SSL gratis, WordPress).
+
+### 0.1 Equivalencias SiteGround → Hostinger
+
+| Concepto | Doc original (SiteGround) | Real (Hostinger Cloud Startup) |
+|----------|---------------------------|--------------------------------|
+| Panel | Site Tools | **hPanel** |
+| Despliegue Git | SiteGround Git | **hPanel → Avanzado → GIT** (o SSH + `git pull`) |
+| Caché de servidor | SG Optimizer | **LiteSpeed Cache** (plugin) + caché del servidor |
+| CDN / caché de borde | Cloudflare | Opcional: Cloudflare o CDN de Hostinger |
+| Staging | SiteGround Staging | **hPanel → WordPress → Staging** |
+| SSH | Solo GrowBig/GoGeek | Incluido en Cloud Startup |
+| SSL | Let's Encrypt | **SSL gratis de Hostinger** |
+
+### 0.2 Puesta en marcha desde cero (orden)
+
+1. **Conectar el dominio (GoDaddy → Hostinger):** en GoDaddy, cambiar los **nameservers** a los de Hostinger (los que muestre hPanel; suelen ser `ns1.dns-parking.com` / `ns2.dns-parking.com`) — opción limpia porque no hay correo `@codigocolor.es` en uso. Alternativa: registro **A** apuntando a la IP que indique hPanel. Propagación ≤ 24 h.
+2. **Crear el sitio:** hPanel → *Sitios web → Añadir sitio web* → instalar **WordPress** en `codigocolor.es`.
+3. **SSL + HTTPS:** activar el SSL gratis (hPanel → *SSL*) y forzar HTTPS.
+4. **Base del tema:** instalar **Hello Elementor** + **Elementor Pro**.
+5. **Desplegar el child theme** (§0.3) y activar «Código Color Child».
+6. **LiteSpeed Cache:** instalar y configurar (§0.4).
+7. **Montar la landing** en Elementor (Fase 5) con el copy (Fase 4).
+
+### 0.3 Despliegue del tema (dos vías)
+
+- **Git de Hostinger (recomendada):** hPanel → *Avanzado → GIT* → conectar este repositorio, rama `main`. Como el tema vive en `codigo-color-child/`, si el destino no admite subcarpeta directa: clonar por **SSH** fuera de `public_html` y copiar/enlazar `codigo-color-child/` a `wp-content/themes/`, o usar `git sparse-checkout` del subdirectorio.
+- **Manual:** hPanel → *Administrador de archivos* → subir `codigo-color-child/` a `wp-content/themes/`.
+- **GitHub Actions (opcional):** el borrador de la §C sirve igual; solo cambian **host, usuario y ruta SSH** por los de Hostinger en los secrets.
+- Tras subir: **Apariencia → Temas → activar «Código Color Child»**.
+
+### 0.4 LiteSpeed Cache (sustituye a SG Optimizer)
+
+- Instalar el plugin **LiteSpeed Cache**.
+- **Excluir de optimización JS**: `cc-*.js`, `gsap.min.js`, `ScrollTrigger.min.js`, `three.module.js` (evita romper GSAP/Elementor/Orbe) → *Page Optimization → JS → JS Excludes* / no combinar ni diferir esos.
+- Activar caché de página; dejar CSS/JS del tema con el cache-busting por `filemtime` que ya trae.
+- (Opcional) localizar Google Fonts desde LiteSpeed mientras se use el puente de fuentes.
+
+### 0.5 Purga de cachés (orden Hostinger)
+
+```
+1. Elementor      → Regenerar CSS y datos
+2. LiteSpeed Cache → Purge All
+3. (Si hay Cloudflare/CDN por delante) → purgar CDN
+```
+
+### 0.6 Staging y rollback (Hostinger)
+
+- **Staging:** hPanel → *WordPress → Staging* (crear, probar, publicar a producción). Obligatorio para cambios de código.
+- **Rollback:** `git revert` + redeploy (Git), o restaurar desde los **backups automáticos** de Hostinger (incluidos en Cloud Startup).
+
+### 0.7 Accesos para automatizar (si se hace por SSH / GitHub Actions)
+
+- Host y **puerto SSH** de Hostinger, **usuario de hosting** (el que aparece en hPanel) y alta de la **clave pública SSH**.
+- Ruta real de `wp-content/themes`.
+
+> Nunca por contraseña en el chat: la **clave SSH pública** se da de alta en hPanel; la **privada** va en los *secrets* de GitHub. Las contraseñas y códigos de acceso del panel son solo para tu inicio de sesión.
 
 ---
 
