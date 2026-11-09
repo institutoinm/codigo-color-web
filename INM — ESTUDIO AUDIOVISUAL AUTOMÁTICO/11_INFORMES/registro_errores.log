@@ -1,0 +1,3 @@
+2026-11-09 18:18:08 | editar analizar | TypeError("open() got an unexpected keyword argument 'metadata_errors'") | RECUPERACIÓN: ver SOLUCION-DE-ERRORES.md
+2026-11-09 18:18:19 | faster-whisper/PyAV | TypeError: open() got an unexpected keyword argument metadata_errors (av 17 + faster-whisper 1.2.1) | RECUPERACIÓN: se decodifica el audio con FFmpeg (comun.audio_16k) y se pasa como array a faster-whisper
+2026-11-09 18:21:18 | editar montar | TypeError('Object of type bool is not JSON serializable') | RECUPERACIÓN: ver SOLUCION-DE-ERRORES.md

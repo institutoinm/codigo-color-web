@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:02,680
+Hola, esto es una prueba del editor
+
+2
+00:00:02,480 --> 00:00:04,100
+automático del Instituto.
+
+3
+00:00:04,100 --> 00:00:06,540
+Hoy probamos cómo se cortan los silencios
+
+4
+00:00:06,340 --> 00:00:07,980
+y las frases repetidas.
+
+5
+00:00:07,980 --> 00:00:10,180
+Cuando digo pigmento, aparece un rótulo en
+
+6
+00:00:09,980 --> 00:00:10,500
+pantalla.
+
+7
+00:00:10,500 --> 00:00:12,220
+Y cuando hablo de la piel también.
+
+8
+00:00:12,220 --> 00:00:14,260
+Al final, el cierre lleva la web
+
+9
+00:00:14,060 --> 00:00:14,900
+del Instituto.

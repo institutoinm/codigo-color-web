@@ -1,0 +1,189 @@
+{
+  "archivo": "08_FINALES/DEMO_bruto_prueba_20261109_v1.mp4",
+  "metadatos": {
+    "duracion": 17.7,
+    "formato": "mov,mp4,m4a,3gp,3g2,mj2",
+    "ancho": 1080,
+    "alto": 1920,
+    "fps": 30.0,
+    "vcodec": "h264",
+    "pix_fmt": "yuv420p",
+    "nb_frames": 531,
+    "perfil": "High",
+    "rotacion": 0,
+    "acodec": "aac",
+    "sample_rate": 48000,
+    "canales": 2
+  },
+  "formato_ok": {
+    "ancho": true,
+    "alto": true,
+    "vcodec": true,
+    "acodec": true,
+    "pix_fmt": true
+  },
+  "decodificacion": {
+    "ok": true,
+    "errores": [],
+    "fotogramas_leidos": 531
+  },
+  "duraciones": {
+    "video_s": 17.7,
+    "audio_s": 17.7,
+    "diferencia_s": 0.0
+  },
+  "sonoridad": {
+    "lufs_integrado": -14.0,
+    "pico_verdadero_dbtp": -0.9
+  },
+  "negros_congelados": {
+    "tramos_negros": [],
+    "congelados_desde": []
+  },
+  "rostros_y_texto": {
+    "muestras": 36,
+    "muestras_con_rostro": 30,
+    "conflictos": [
+      {
+        "t": 1.5,
+        "texto": "esto es una",
+        "fraccion_cara_tapada": 0.25
+      },
+      {
+        "t": 2.0,
+        "texto": "prueba del editor",
+        "fraccion_cara_tapada": 0.25
+      },
+      {
+        "t": 4.5,
+        "texto": "Hoy probamos cómo",
+        "fraccion_cara_tapada": 0.34
+      },
+      {
+        "t": 5.5,
+        "texto": "se cortan los",
+        "fraccion_cara_tapada": 0.17
+      },
+      {
+        "t": 6.0,
+        "texto": "silencios y las",
+        "fraccion_cara_tapada": 0.23
+      },
+      {
+        "t": 6.5,
+        "texto": "silencios y las",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 7.0,
+        "texto": "frases repetidas.",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 7.5,
+        "texto": "frases repetidas.",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 8.0,
+        "texto": "Cuando digo pigmento,",
+        "fraccion_cara_tapada": 0.25
+      },
+      {
+        "t": 8.5,
+        "texto": "Cuando digo pigmento,",
+        "fraccion_cara_tapada": 0.25
+      },
+      {
+        "t": 9.0,
+        "texto": "Cuando digo pigmento,",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 9.0,
+        "texto": "PIGMENTO",
+        "fraccion_cara_tapada": 0.25
+      },
+      {
+        "t": 9.5,
+        "texto": "aparece un rótulo",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 9.5,
+        "texto": "PIGMENTO",
+        "fraccion_cara_tapada": 0.27
+      },
+      {
+        "t": 10.0,
+        "texto": "en pantalla.",
+        "fraccion_cara_tapada": 0.26
+      },
+      {
+        "t": 10.0,
+        "texto": "PIGMENTO",
+        "fraccion_cara_tapada": 0.27
+      },
+      {
+        "t": 10.5,
+        "texto": "en pantalla.",
+        "fraccion_cara_tapada": 0.25
+      }
+    ],
+    "n_conflictos": 17
+  },
+  "sincronia_subtitulos": {
+    "medido": true,
+    "coincidencias": 24,
+    "desfase_mediano_s": 0.0,
+    "desfase_max_abs_s": 0.12,
+    "ok": true
+  },
+  "ortografia": {
+    "revisado": true,
+    "palabras_a_revisar": [
+      "aparece",
+      "cortan",
+      "cómo",
+      "digo",
+      "frases",
+      "hablo",
+      "probamos",
+      "repetidas",
+      "silencios",
+      "web"
+    ],
+    "nota": "Lista orientativa: el diccionario automático no conoce todos los términos técnicos. Revisión humana obligatoria."
+  },
+  "originalidad": {
+    "comparados": 0,
+    "detalle": [],
+    "alerta_repeticion": false
+  },
+  "marca": {
+    "colores_verificados": false,
+    "logo_verificado": false,
+    "logo_presente": false,
+    "telefono_verificado": false
+  },
+  "musica": {
+    "usada": false,
+    "motivo": "No hay música con licencia en 05_RECURSOS/musica"
+  },
+  "fallos": [
+    "Texto sobre rostro en 17 muestras"
+  ],
+  "avisos": [
+    "Identidad corporativa sin verificar (colores/logotipo oficiales pendientes)",
+    "Sin música: añadir pista con licencia (o desde la biblioteca de Instagram al publicar)"
+  ],
+  "veredicto": "NO APTO",
+  "estado": "PENDIENTE DE APROBACIÓN DE CRISTINA",
+  "revision_humana_obligatoria": [
+    "Ver el vídeo entero en el móvil, con y sin sonido",
+    "Ortografía y términos técnicos de los subtítulos",
+    "Manos, instrumentos y zona de tratamiento despejados (la detección automática solo mide rostros)",
+    "Precisión anatómica y científica de cada rótulo o animación",
+    "Licencias de música, imágenes y stock"
+  ]
+}

@@ -22,8 +22,9 @@ import statistics
 import subprocess
 from pathlib import Path
 
-from comun import D, MODELOS, cargar_estilo, ffmpeg, info_video, log, normalizar, registrar_error
+from comun import D, audio_16k, MODELOS, cargar_estilo, ffmpeg, info_video, log, normalizar, registrar_error
 
+UMBRAL_CARA = 0.85  # por debajo aparecen falsos positivos (parches, logotipos redondos)
 ESPERADO = {"ancho": 1080, "alto": 1920, "vcodec": "h264", "acodec": "aac", "pix_fmt": "yuv420p"}
 
 
@@ -45,8 +46,8 @@ def duraciones(path: Path) -> dict:
         r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", sel, "-show_entries", "stream=duration",
                             "-of", "csv=p=0", str(path)], capture_output=True, text=True)
         try:
-            out[sel] = float(r.stdout.strip())
-        except ValueError:
+            out[sel] = float(r.stdout.strip().splitlines()[0].split(",")[0])
+        except (ValueError, IndexError):
             out[sel] = None
     dif = abs(out["v:0"] - out["a:0"]) if None not in out.values() else None
     return {"video_s": out["v:0"], "audio_s": out["a:0"], "diferencia_s": dif}
@@ -91,7 +92,7 @@ def detectar_caras(path: Path, paso_s: float = 0.5, max_muestras: int = 240) -> 
             continue
         h, w = fr.shape[:2]
         if det is None:
-            det = cv2.FaceDetectorYN.create(str(modelo), "", (w, h), 0.7, 0.3, 5000)
+            det = cv2.FaceDetectorYN.create(str(modelo), "", (w, h), UMBRAL_CARA, 0.3, 5000)
         _, faces = det.detect(fr)
         caras = []
         if faces is not None:
@@ -132,12 +133,9 @@ def sincronia_subtitulos(path: Path, palabras_plan: list[dict]) -> dict:
 
     if not palabras_plan:
         return {"medido": False, "motivo": "sin palabras en el plan"}
-    wav = path.with_suffix(".qc.wav")
-    ffmpeg(["-i", path, "-vn", "-ac", "1", "-ar", "16000", wav], "qc audio")
     m = WhisperModel("small", device="cpu", compute_type="int8")
-    segs, _ = m.transcribe(str(wav), language="es", word_timestamps=True, vad_filter=False)
+    segs, _ = m.transcribe(audio_16k(path), language="es", word_timestamps=True, vad_filter=False)
     oidas = [{"w": normalizar(w.word), "t": w.start} for s in segs for w in (s.words or [])]
-    wav.unlink(missing_ok=True)
     difs = []
     j = 0
     for p in palabras_plan:
@@ -156,18 +154,25 @@ def sincronia_subtitulos(path: Path, palabras_plan: list[dict]) -> dict:
             "desfase_max_abs_s": round(max(abs(d) for d in difs), 3), "ok": abs(med) <= 0.12}
 
 
-def ortografia(palabras: list[str], estilo: dict) -> dict:
+def ortografia(palabras: list, estilo: dict) -> dict:
+    """Marca para revisión las palabras dudosas: baja confianza del transcriptor, o desconocidas
+    para el diccionario Y sin confianza alta (el diccionario no conoce muchas conjugaciones ni tecnicismos)."""
     try:
         from spellchecker import SpellChecker  # noqa: PLC0415
+        sc = SpellChecker(language="es")
     except ImportError:
-        return {"revisado": False}
-    sc = SpellChecker(language="es")
+        sc = None
     propias = {normalizar(x) for x in re.split(r"[ ,.;:]+", estilo.get("vocabulario_transcripcion", "")) if x}
-    limpias = {re.sub(r"[^\wáéíóúüñÁÉÍÓÚÜÑ]", "", w).lower() for w in palabras}
-    limpias = {w for w in limpias if len(w) > 2 and not w.isdigit()}
-    dudosas = sorted(w for w in sc.unknown(limpias) if normalizar(w) not in propias)
+    dudosas = []
+    for p in palabras:
+        w = re.sub(r"[^\wáéíóúüñÁÉÍÓÚÜÑ]", "", p["w"]).lower()
+        if len(w) < 2 or w.isdigit() or normalizar(w) in propias:
+            continue
+        desconocida = bool(sc and sc.unknown([w]))
+        if p.get("p", 1) < 0.6 or (desconocida and p.get("p", 1) < 0.9):
+            dudosas.append(f"{p['w']} ({p['t0']:.1f} s)")
     return {"revisado": True, "palabras_a_revisar": dudosas,
-            "nota": "Lista orientativa: el diccionario automático no conoce todos los términos técnicos. Revisión humana obligatoria."}
+            "nota": "Orientativo. La revisión humana de cada subtítulo es obligatoria."}
 
 
 def originalidad(plan: dict) -> dict:
@@ -194,6 +199,10 @@ def originalidad(plan: dict) -> dict:
     return {"comparados": len(comp), "detalle": comp, "alerta_repeticion": alerta}
 
 
+def _js(o):
+    return o.item() if hasattr(o, "item") else str(o)
+
+
 def ejecutar(path: Path, plan_path: Path | None = None, sincronia: bool = True, salida: Path | None = None) -> dict:
     estilo = cargar_estilo()
     log(f"QC de {path.name}")
@@ -216,7 +225,7 @@ def ejecutar(path: Path, plan_path: Path | None = None, sincronia: bool = True, 
             registrar_error("qc sincronía", str(e), "se omite la medición")
             rep["sincronia_subtitulos"] = {"medido": False, "motivo": str(e)[:200]}
     if plan.get("palabras_finales"):
-        rep["ortografia"] = ortografia([p["w"] for p in plan["palabras_finales"]], estilo)
+        rep["ortografia"] = ortografia(plan["palabras_finales"], estilo)
         rep["originalidad"] = originalidad(plan)
     marca = estilo["marca"]
     logo = D["finales"].parent / marca["logo"]
@@ -231,7 +240,9 @@ def ejecutar(path: Path, plan_path: Path | None = None, sincronia: bool = True, 
     if not rep["decodificacion"]["ok"]:
         fallos.append("El archivo tiene errores de decodificación")
     d = rep["duraciones"]["diferencia_s"]
-    if d is not None and d > 0.1:
+    if d is None:
+        fallos.append("No se ha podido medir la duración de vídeo o audio")
+    elif d > 0.07:
         fallos.append(f"Audio y vídeo difieren {d:.2f} s")
     l = rep["sonoridad"]["lufs_integrado"]
     if l is not None and abs(l - estilo["audio"]["lufs"]) > 1.5:
@@ -263,7 +274,7 @@ def ejecutar(path: Path, plan_path: Path | None = None, sincronia: bool = True, 
         "Licencias de música, imágenes y stock",
     ]
     if salida:
-        salida.write_text(json.dumps(rep, indent=2, ensure_ascii=False), encoding="utf-8")
+        salida.write_text(json.dumps(rep, indent=2, ensure_ascii=False, default=_js), encoding="utf-8")
         salida.with_suffix(".md").write_text(a_markdown(rep), encoding="utf-8")
     log(f"QC: {rep['veredicto']}  fallos={len(fallos)} avisos={len(avisos)}")
     return rep

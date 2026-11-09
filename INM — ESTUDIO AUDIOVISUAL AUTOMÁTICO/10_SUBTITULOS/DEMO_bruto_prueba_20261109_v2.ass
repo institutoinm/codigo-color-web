@@ -1,0 +1,91 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Montserrat ExtraBold,76,&H00FFFFFF,&H00FFFFFF,&H002C1808,&H80000000,0,0,0,0,100,100,0,0,1,6,0,5,60,140,0,1
+Style: Gancho,Montserrat Black,92,&H00FFFFFF,&H00FFFFFF,&H002C1808,&H80000000,0,0,0,0,100,100,0,0,1,7,0,5,80,80,0,1
+Style: Rotulo,Montserrat Black,104,&H00FFC38F,&H00FFC38F,&H002C1808,&H80000000,0,0,0,0,100,100,2,0,1,7,0,5,60,60,0,1
+Style: Cierre,Montserrat Black,62,&H00FFFFFF,&H00FFFFFF,&H002C1808,&H00000000,0,0,0,0,100,100,1,0,1,0,0,5,60,60,0,1
+Style: CierreTxt,Montserrat SemiBold,44,&H00FFFFFF,&H00FFFFFF,&H002C1808,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,60,60,0,1
+Style: Dibujo,Montserrat SemiBold,20,&H00FFC38F,&H00FFC38F,&H002C1808,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 3,0:00:00.05,0:00:02.20,Gancho,,0,0,0,,{\pos(540,1500)\fscx70\fscy70\blur10\alpha&HFF&\t(0,260,\fscx104\fscy104\blur0\alpha&H00&)\t(260,420,\fscx100\fscy100)\t(1950,2200,\alpha&HFF&)}ASÍ EDITA EL\NESTUDIO INM
+Dialogue: 1,0:00:01.16,0:00:01.46,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}esto{\c&H00FFFFFF\fscx100\fscy100} es una
+Dialogue: 1,0:00:01.46,0:00:01.60,Sub,,0,0,0,,{\pos(540,1330)}esto {\c&H00FFC38F\fscx108\fscy108}es{\c&H00FFFFFF\fscx100\fscy100} una
+Dialogue: 1,0:00:01.60,0:00:01.72,Sub,,0,0,0,,{\pos(540,1330)}esto es {\c&H00FFC38F\fscx108\fscy108}una{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:01.72,0:00:01.96,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}prueba{\c&H00FFFFFF\fscx100\fscy100} del editor
+Dialogue: 1,0:00:01.96,0:00:02.20,Sub,,0,0,0,,{\pos(540,1330)}prueba {\c&H00FFC38F\fscx108\fscy108}del{\c&H00FFFFFF\fscx100\fscy100} editor
+Dialogue: 1,0:00:02.20,0:00:02.48,Sub,,0,0,0,,{\pos(540,1330)}prueba del {\c&H00FFC38F\fscx108\fscy108}editor{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:02.48,0:00:03.08,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}automático{\c&H00FFFFFF\fscx100\fscy100} del
+Dialogue: 1,0:00:03.08,0:00:03.34,Sub,,0,0,0,,{\pos(540,1330)}automático {\c&H00FFC38F\fscx108\fscy108}del{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:03.34,0:00:04.10,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Instituto.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:04.10,0:00:04.66,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Hoy{\c&H00FFFFFF\fscx100\fscy100} probamos cómo
+Dialogue: 1,0:00:04.66,0:00:05.06,Sub,,0,0,0,,{\pos(540,1330)}Hoy {\c&H00FFC38F\fscx108\fscy108}probamos{\c&H00FFFFFF\fscx100\fscy100} cómo
+Dialogue: 1,0:00:05.06,0:00:05.30,Sub,,0,0,0,,{\pos(540,1330)}Hoy probamos {\c&H00FFC38F\fscx108\fscy108}cómo{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:05.30,0:00:05.46,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}se{\c&H00FFFFFF\fscx100\fscy100} cortan los
+Dialogue: 1,0:00:05.46,0:00:05.78,Sub,,0,0,0,,{\pos(540,1330)}se {\c&H00FFC38F\fscx108\fscy108}cortan{\c&H00FFFFFF\fscx100\fscy100} los
+Dialogue: 1,0:00:05.78,0:00:05.88,Sub,,0,0,0,,{\pos(540,1330)}se cortan {\c&H00FFC38F\fscx108\fscy108}los{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:05.88,0:00:06.34,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}silencios{\c&H00FFFFFF\fscx100\fscy100} y las
+Dialogue: 1,0:00:06.34,0:00:06.72,Sub,,0,0,0,,{\pos(540,1330)}silencios {\c&H00FFC38F\fscx108\fscy108}y{\c&H00FFFFFF\fscx100\fscy100} las
+Dialogue: 1,0:00:06.72,0:00:06.86,Sub,,0,0,0,,{\pos(540,1330)}silencios y {\c&H00FFC38F\fscx108\fscy108}las{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:06.86,0:00:07.14,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}frases{\c&H00FFFFFF\fscx100\fscy100} repetidas.
+Dialogue: 1,0:00:07.14,0:00:07.98,Sub,,0,0,0,,{\pos(540,1330)}frases {\c&H00FFC38F\fscx108\fscy108}repetidas.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:07.98,0:00:08.26,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Cuando{\c&H00FFFFFF\fscx100\fscy100} digo pigmento,
+Dialogue: 1,0:00:08.26,0:00:08.52,Sub,,0,0,0,,{\pos(540,1330)}Cuando {\c&H00FFC38F\fscx108\fscy108}digo{\c&H00FFFFFF\fscx100\fscy100} pigmento,
+Dialogue: 1,0:00:08.52,0:00:09.16,Sub,,0,0,0,,{\pos(540,1330)}Cuando digo {\c&H00FFC38F\fscx108\fscy108}pigmento,{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:09.16,0:00:09.40,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}aparece{\c&H00FFFFFF\fscx100\fscy100} un rótulo
+Dialogue: 1,0:00:09.40,0:00:09.62,Sub,,0,0,0,,{\pos(540,1330)}aparece {\c&H00FFC38F\fscx108\fscy108}un{\c&H00FFFFFF\fscx100\fscy100} rótulo
+Dialogue: 1,0:00:09.62,0:00:09.88,Sub,,0,0,0,,{\pos(540,1330)}aparece un {\c&H00FFC38F\fscx108\fscy108}rótulo{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:09.88,0:00:09.98,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}en{\c&H00FFFFFF\fscx100\fscy100} pantalla.
+Dialogue: 1,0:00:09.98,0:00:10.50,Sub,,0,0,0,,{\pos(540,1330)}en {\c&H00FFC38F\fscx108\fscy108}pantalla.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:10.50,0:00:10.86,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Y{\c&H00FFFFFF\fscx100\fscy100} cuando hablo
+Dialogue: 1,0:00:10.86,0:00:11.06,Sub,,0,0,0,,{\pos(540,1330)}Y {\c&H00FFC38F\fscx108\fscy108}cuando{\c&H00FFFFFF\fscx100\fscy100} hablo
+Dialogue: 1,0:00:11.06,0:00:11.30,Sub,,0,0,0,,{\pos(540,1330)}Y cuando {\c&H00FFC38F\fscx108\fscy108}hablo{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:11.30,0:00:11.40,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}de{\c&H00FFFFFF\fscx100\fscy100} la piel
+Dialogue: 1,0:00:11.40,0:00:11.48,Sub,,0,0,0,,{\pos(540,1330)}de {\c&H00FFC38F\fscx108\fscy108}la{\c&H00FFFFFF\fscx100\fscy100} piel
+Dialogue: 1,0:00:11.48,0:00:11.62,Sub,,0,0,0,,{\pos(540,1330)}de la {\c&H00FFC38F\fscx108\fscy108}piel{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:11.62,0:00:12.22,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}también.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:12.22,0:00:12.68,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Al{\c&H00FFFFFF\fscx100\fscy100} final,
+Dialogue: 1,0:00:12.68,0:00:13.22,Sub,,0,0,0,,{\pos(540,1330)}Al {\c&H00FFC38F\fscx108\fscy108}final,{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:13.22,0:00:13.28,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}el{\c&H00FFFFFF\fscx100\fscy100} cierre lleva
+Dialogue: 1,0:00:13.28,0:00:13.64,Sub,,0,0,0,,{\pos(540,1330)}el {\c&H00FFC38F\fscx108\fscy108}cierre{\c&H00FFFFFF\fscx100\fscy100} lleva
+Dialogue: 1,0:00:13.64,0:00:13.86,Sub,,0,0,0,,{\pos(540,1330)}el cierre {\c&H00FFC38F\fscx108\fscy108}lleva{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:13.86,0:00:13.98,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}la{\c&H00FFFFFF\fscx100\fscy100} web del
+Dialogue: 1,0:00:13.98,0:00:14.06,Sub,,0,0,0,,{\pos(540,1330)}la {\c&H00FFC38F\fscx108\fscy108}web{\c&H00FFFFFF\fscx100\fscy100} del
+Dialogue: 1,0:00:14.06,0:00:14.22,Sub,,0,0,0,,{\pos(540,1330)}la web {\c&H00FFC38F\fscx108\fscy108}del{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 1,0:00:14.22,0:00:14.90,Sub,,0,0,0,,{\pos(540,1330)\fscx86\fscy86\t(0,90,\fscx100\fscy100)}{\c&H00FFC38F\fscx108\fscy108}Instituto.{\c&H00FFFFFF\fscx100\fscy100}
+Dialogue: 4,0:00:08.52,0:00:10.12,Rotulo,,0,0,0,,{\pos(540,1550)\fscx40\fscy40\blur14\alpha&HFF&\t(0,220,\fscx108\fscy108\blur0\alpha&H00&)\t(220,340,\fscx100\fscy100)\t(1379,1599,\alpha&HFF&\fscx115\fscy115)}PIGMENTO
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(350,1522,351,1300,34,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(34,184,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -6 b 6 -6 6 6 0 6 b -6 6 -6 -6 0 -6{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(284,1557,381,1319,233,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(233,383,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -8 b 8 -8 8 8 0 8 b -8 8 -8 -8 0 -8{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(659,1539,814,1371,36,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(36,186,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -8 b 8 -8 8 8 0 8 b -8 8 -8 -8 0 -8{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(361,1533,345,1319,111,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(111,261,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -10 b 10 -10 10 10 0 10 b -10 10 -10 -10 0 -10{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(415,1514,285,1278,83,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(83,233,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -9 b 9 -9 9 9 0 9 b -9 9 -9 -9 0 -9{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(473,1543,378,1313,182,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(182,332,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -5 b 5 -5 5 5 0 5 b -5 5 -5 -5 0 -5{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(364,1551,299,1340,103,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(103,253,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -9 b 9 -9 9 9 0 9 b -9 9 -9 -9 0 -9{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(453,1534,357,1379,161,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(161,311,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -8 b 8 -8 8 8 0 8 b -8 8 -8 -8 0 -8{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(412,1525,434,1359,16,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(16,166,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -7 b 7 -7 7 7 0 7 b -7 7 -7 -7 0 -7{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(347,1566,366,1348,31,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(31,181,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -10 b 10 -10 10 10 0 10 b -10 10 -10 -10 0 -10{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(551,1517,625,1314,159,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(159,309,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -8 b 8 -8 8 8 0 8 b -8 8 -8 -8 0 -8{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(459,1581,590,1422,216,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(216,366,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -7 b 7 -7 7 7 0 7 b -7 7 -7 -7 0 -7{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(629,1581,571,1452,55,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(55,205,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -7 b 7 -7 7 7 0 7 b -7 7 -7 -7 0 -7{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(453,1574,497,1397,246,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(246,396,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -9 b 9 -9 9 9 0 9 b -9 9 -9 -9 0 -9{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(339,1518,210,1363,36,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(36,186,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -9 b 9 -9 9 9 0 9 b -9 9 -9 -9 0 -9{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(413,1559,301,1376,15,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(15,165,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -9 b 9 -9 9 9 0 9 b -9 9 -9 -9 0 -9{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(586,1582,519,1371,0,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(0,150,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -5 b 5 -5 5 5 0 5 b -5 5 -5 -5 0 -5{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(309,1532,425,1332,7,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(7,157,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -5 b 5 -5 5 5 0 5 b -5 5 -5 -5 0 -5{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(422,1520,491,1354,123,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(123,273,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -8 b 8 -8 8 8 0 8 b -8 8 -8 -8 0 -8{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(752,1563,611,1365,137,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(137,287,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -10 b 10 -10 10 10 0 10 b -10 10 -10 -10 0 -10{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(690,1571,703,1422,249,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(249,399,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -10 b 10 -10 10 10 0 10 b -10 10 -10 -10 0 -10{\p0}
+Dialogue: 2,0:00:08.52,0:00:10.12,Dibujo,,0,0,0,,{\move(548,1571,607,1334,67,1599)\c&H00FFC38F\blur2\alpha&HFF&\t(67,217,\alpha&H30&)\t(1199,1599,\alpha&HFF&)\p1}m 0 -10 b 10 -10 10 10 0 10 b -10 10 -10 -10 0 -10{\p0}
+Dialogue: 5,0:00:14.95,0:00:17.70,Cierre,,0,0,0,,{\pos(540,760)\alpha&HFF&\t(0,300,\alpha&H00&)}INSTITUTO NACIONAL\NDE MICROPIGMENTACIÓN
+Dialogue: 5,0:00:14.95,0:00:17.70,CierreTxt,,0,0,0,,{\pos(540,1000)\alpha&HFF&\t(120,420,\alpha&H00&)}institutonacionaldemicropigmentacion.es
+Dialogue: 5,0:00:14.95,0:00:17.70,CierreTxt,,0,0,0,,{\pos(540,1070)\alpha&HFF&\t(240,540,\alpha&H00&)}info@institutonacionaldemicropigmentacion.es
+Dialogue: 5,0:00:14.95,0:00:17.70,Cierre,,0,0,0,,{\pos(540,1290)\alpha&HFF&\t(360,660,\alpha&H00&)}AGENDA TU CITA
+Dialogue: 5,0:00:15.50,0:00:17.70,Dibujo,,0,0,0,,{\pos(390,1350)\c&H00FFC38F\p1\fscx0\t(0,400,\fscx100)}m 0 0 l 300 0 l 300 6 l 0 6{\p0}

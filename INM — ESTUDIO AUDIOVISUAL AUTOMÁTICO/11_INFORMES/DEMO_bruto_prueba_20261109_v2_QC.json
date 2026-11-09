@@ -1,0 +1,87 @@
+{
+  "archivo": "08_FINALES/DEMO_bruto_prueba_20261109_v2.mp4",
+  "metadatos": {
+    "duracion": 17.7,
+    "formato": "mov,mp4,m4a,3gp,3g2,mj2",
+    "ancho": 1080,
+    "alto": 1920,
+    "fps": 30.0,
+    "vcodec": "h264",
+    "pix_fmt": "yuv420p",
+    "nb_frames": 531,
+    "perfil": "High",
+    "rotacion": 0,
+    "acodec": "aac",
+    "sample_rate": 48000,
+    "canales": 2
+  },
+  "formato_ok": {
+    "ancho": true,
+    "alto": true,
+    "vcodec": true,
+    "acodec": true,
+    "pix_fmt": true
+  },
+  "decodificacion": {
+    "ok": true,
+    "errores": [],
+    "fotogramas_leidos": 531
+  },
+  "duraciones": {
+    "video_s": 17.7,
+    "audio_s": 17.7,
+    "diferencia_s": 0.0
+  },
+  "sonoridad": {
+    "lufs_integrado": -14.0,
+    "pico_verdadero_dbtp": -0.9
+  },
+  "negros_congelados": {
+    "tramos_negros": [],
+    "congelados_desde": []
+  },
+  "rostros_y_texto": {
+    "muestras": 36,
+    "muestras_con_rostro": 30,
+    "conflictos": [],
+    "n_conflictos": 0
+  },
+  "ortografia": {
+    "revisado": true,
+    "palabras_a_revisar": [
+      "Hola, (0.0 s)",
+      "hablo (11.1 s)",
+      "la (13.9 s)"
+    ],
+    "nota": "Orientativo. La revisión humana de cada subtítulo es obligatoria."
+  },
+  "originalidad": {
+    "comparados": 0,
+    "detalle": [],
+    "alerta_repeticion": false
+  },
+  "marca": {
+    "colores_verificados": false,
+    "logo_verificado": false,
+    "logo_presente": false,
+    "telefono_verificado": false
+  },
+  "musica": {
+    "usada": false,
+    "motivo": "No hay música con licencia en 05_RECURSOS/musica"
+  },
+  "fallos": [],
+  "avisos": [
+    "Identidad corporativa sin verificar (colores/logotipo oficiales pendientes)",
+    "Sin música: añadir pista con licencia (o desde la biblioteca de Instagram al publicar)"
+  ],
+  "veredicto": "APTO CON AVISOS",
+  "estado": "PENDIENTE DE APROBACIÓN DE CRISTINA",
+  "revision_humana_obligatoria": [
+    "Ver el vídeo entero en el móvil, con y sin sonido",
+    "Ortografía y términos técnicos de los subtítulos",
+    "Manos, instrumentos y zona de tratamiento despejados (la detección automática solo mide rostros)",
+    "Precisión anatómica y científica de cada rótulo o animación",
+    "Licencias de música, imágenes y stock"
+  ]
+}

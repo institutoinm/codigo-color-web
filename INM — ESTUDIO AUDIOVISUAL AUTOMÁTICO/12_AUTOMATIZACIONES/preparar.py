@@ -82,6 +82,23 @@ def remotion(c):
     return "instalado" if (d / "node_modules" / "remotion").exists() else "falta"
 
 
+def hyperframes(c):
+    """HyperFrames 0.9.26 por npx; GSAP se sirve en local (sin CDN) desde el paquete npm oficial."""
+    d = D["herramientas"] / "hyperframes-inm"
+    g = d / "gsap.min.js"
+    if not g.exists() and not c:
+        import tarfile
+        import tempfile
+
+        npm = shutil.which("npm") or shutil.which("npm.cmd")
+        with tempfile.TemporaryDirectory() as tmp:
+            subprocess.run([npm, "pack", "gsap@3.15.0"], cwd=tmp, check=True, capture_output=True)
+            with tarfile.open(next(__import__("pathlib").Path(tmp).glob("gsap-*.tgz"))) as t:
+                t.extract("package/dist/gsap.min.js", tmp, filter="data")
+            shutil.copy2(__import__("pathlib").Path(tmp) / "package/dist/gsap.min.js", g)
+    return "plantilla lista (gsap local)" if g.exists() else "falta gsap.min.js"
+
+
 def binarios(_c):
     out = {}
     for b in ["ffmpeg", "ffprobe", "node", "git"]:
@@ -100,7 +117,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
     res = {}
     for n, f in [("binarios", binarios), ("whisper", whisper), ("rembg", rembg_m), ("yunet", yunet),
-                 ("repositorios", repos), ("remotion", remotion)]:
+                 ("repositorios", repos), ("remotion", remotion), ("hyperframes", hyperframes)]:
         res[n] = paso(n, f, a.comprobar)
     (D["informes"] / "estado_herramientas.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
     fallos = [n for n, (ok, _) in res.items() if not ok]

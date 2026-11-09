@@ -105,6 +105,15 @@ def info_video(path: Path) -> dict:
     return out
 
 
+def audio_16k(path: Path):
+    """Decodifica audio a float32 mono 16 kHz con FFmpeg (evita la incompatibilidad PyAV/faster-whisper)."""
+    import numpy as np
+
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype="<f4").copy()
+
+
 def sha256(path: Path, bloque: int = 1 << 20) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:

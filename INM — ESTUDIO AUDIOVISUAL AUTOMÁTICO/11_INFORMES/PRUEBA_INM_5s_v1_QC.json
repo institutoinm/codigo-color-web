@@ -71,7 +71,6 @@
   ],
   "prueba": {
     "duracion_ok": true,
-    "fotogramas_esperados": 150,
     "fotogramas_ok": true,
     "sfx_en_su_sitio": {
       "ataques_detectados_s": [

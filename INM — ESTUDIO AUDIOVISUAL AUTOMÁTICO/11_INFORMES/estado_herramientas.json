@@ -32,5 +32,9 @@
   "remotion": [
     true,
     "instalado"
+  ],
+  "hyperframes": [
+    true,
+    "plantilla lista (gsap local)"
   ]
 }

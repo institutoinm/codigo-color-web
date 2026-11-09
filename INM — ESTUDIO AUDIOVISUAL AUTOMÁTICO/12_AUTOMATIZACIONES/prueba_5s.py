@@ -88,7 +88,7 @@ def main() -> Path:
              "fotogramas_esperados": 5 * FPS, "fotogramas_ok": rep["decodificacion"]["fotogramas_leidos"] == 5 * FPS}
     extra["sfx_en_su_sitio"] = medir_sfx(salida)
     rep["prueba"] = extra
-    informe.write_text(json.dumps(rep, indent=2, ensure_ascii=False), encoding="utf-8")
+    informe.write_text(json.dumps(rep, indent=2, ensure_ascii=False, default=qc._js), encoding="utf-8")
     print(json.dumps(extra, indent=2, ensure_ascii=False))
     return salida
 
