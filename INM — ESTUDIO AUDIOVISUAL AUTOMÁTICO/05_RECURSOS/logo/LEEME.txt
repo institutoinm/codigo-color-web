@@ -1,0 +1,1 @@
+Coloca aquí el logotipo OFICIAL del INM como logo_inm.png (fondo transparente) y marca logo_verificado=true en 03_ESTILO_INM/estilo_inm.json.

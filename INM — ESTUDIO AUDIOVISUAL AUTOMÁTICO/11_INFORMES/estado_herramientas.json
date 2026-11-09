@@ -1,0 +1,36 @@
+{
+  "binarios": [
+    true,
+    {
+      "ffmpeg": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FF",
+      "ffprobe": "ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the F",
+      "node": "v22.23.4",
+      "git": "git version 2.43.0"
+    }
+  ],
+  "whisper": [
+    true,
+    "modelo small listo"
+  ],
+  "rembg": [
+    true,
+    "u2net_human_seg listo"
+  ],
+  "yunet": [
+    true,
+    "presente (232589 bytes)"
+  ],
+  "repositorios": [
+    true,
+    {
+      "reels-montage": "ok",
+      "hyperframes": "ok",
+      "remotion-skills": "ok",
+      "yt-dlp": "ok"
+    }
+  ],
+  "remotion": [
+    true,
+    "instalado"
+  ]
+}

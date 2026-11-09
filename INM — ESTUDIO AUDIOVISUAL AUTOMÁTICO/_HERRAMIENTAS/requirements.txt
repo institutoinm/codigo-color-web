@@ -1,0 +1,10 @@
+# Dependencias Python del estudio INM (versiones probadas el 09/11/2026)
+faster-whisper==1.2.1
+rembg[cpu]==2.0.87
+yt-dlp==2026.10.26
+opencv-python-headless==5.0.0.93
+pillow==13.0.0
+numpy==2.5.4
+pyspellchecker==0.9.1
+fonttools==4.68.0
+brotli==1.2.1

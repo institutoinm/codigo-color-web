@@ -1,0 +1,108 @@
+{
+  "_nota": "Ficha técnica que leen los scripts. La explicación humana está en ESTILO-INM.md. Los colores y el logotipo NO están verificados: sustituir por los del manual corporativo y poner colores_verificados=true.",
+  "marca": {
+    "nombre": "INSTITUTO NACIONAL DE MICROPIGMENTACIÓN",
+    "siglas": "INM",
+    "web": "institutonacionaldemicropigmentacion.es",
+    "email": "info@institutonacionaldemicropigmentacion.es",
+    "telefono": null,
+    "cta": "AGENDA TU CITA",
+    "logo": "05_RECURSOS/logo/logo_inm.png",
+    "logo_verificado": false,
+    "colores_verificados": false,
+    "colores": {
+      "_aviso": "PROVISIONALES (azul marino neutro + blanco) hasta recibir los HEX oficiales del manual del INM",
+      "primario": "#0D2B4E",
+      "secundario": "#2F6DB5",
+      "resalte": "#8FC3FF",
+      "texto": "#FFFFFF",
+      "contorno": "#08182C"
+    }
+  },
+  "tipografia": {
+    "titulos": "Montserrat Black",
+    "subtitulos": "Montserrat ExtraBold",
+    "texto": "Montserrat SemiBold",
+    "carpeta": "05_RECURSOS/fuentes"
+  },
+  "formato": {
+    "ancho": 1080,
+    "alto": 1920,
+    "fps_por_defecto": 30,
+    "crf": 18,
+    "preset": "medium",
+    "audio_kbps": 192
+  },
+  "zonas_seguras": {
+    "_nota": "Píxeles sobre lienzo 1080x1920. Reservado para la interfaz de Instagram/TikTok/Shorts.",
+    "superior": 250,
+    "inferior": 420,
+    "derecha": 140,
+    "izquierda": 60
+  },
+  "subtitulos": {
+    "max_palabras_bloque": 3,
+    "max_caracteres_bloque": 22,
+    "tamano": 76,
+    "contorno": 6,
+    "sombra": 0,
+    "banda_baja_y": 1330,
+    "banda_alta_y": 420,
+    "resaltar_palabra_actual": true,
+    "mayusculas": false
+  },
+  "ritmo": {
+    "pausa_max_s": 0.32,
+    "margen_antes_s": 0.06,
+    "margen_despues_s": 0.14,
+    "unir_si_hueco_menor_s": 0.18,
+    "zoom_alterno": 1.07,
+    "zoom_impacto": 1.14,
+    "gancho_s": 2.2,
+    "cierre_s": 2.8
+  },
+  "audio": {
+    "lufs": -14,
+    "true_peak": -1.0,
+    "musica_db_bajo_voz": -24,
+    "sfx_db": -16,
+    "highpass_hz": 80
+  },
+  "muletillas": {
+    "siempre": ["eh", "ehh", "ehm", "em", "emm", "mm", "mmm", "hmm", "ah", "aa"],
+    "si_aisladas": ["vale", "pues", "bueno", "o sea", "este", "osea", "nada"]
+  },
+  "vocabulario_transcripcion": "Instituto Nacional de Micropigmentación, INM, Cristina Barriga, micropigmentación, dermógrafo, pigmento, pigmentología, colorimetría, areola, areola 3D, complejo areola-pezón, folículo, dermis, epidermis, hipodermis, cicatriz, estrías, cejas pelo a pelo, powder, ombré, microblading, entrepestañas, eyeliner, capilar, efecto rapado, redensificación, colágeno, camuflaje, oncológica.",
+  "palabras_animables": {
+    "_fuente": "Prompt maestro VFX (doc 10, Instict, 5 nov 2026), apartado 5. Cada entrada: raíz → recurso y etiqueta en pantalla.",
+    "duda": {"recurso": "interrogacion", "rotulo": "¿?"},
+    "pigment": {"recurso": "particulas", "rotulo": "PIGMENTO"},
+    "piel": {"recurso": "capas_piel", "rotulo": "PIEL"},
+    "profundidad": {"recurso": "capas_piel", "rotulo": "PROFUNDIDAD"},
+    "foliculo": {"recurso": "tarjeta", "rotulo": "FOLÍCULO"},
+    "cicatri": {"recurso": "tarjeta", "rotulo": "CICATRIZ"},
+    "color": {"recurso": "particulas", "rotulo": "COLOR"},
+    "volumen": {"recurso": "tarjeta", "rotulo": "VOLUMEN"},
+    "riesgo": {"recurso": "aviso", "rotulo": "RIESGO"},
+    "ceja": {"recurso": "tarjeta", "rotulo": "CEJAS"},
+    "labio": {"recurso": "tarjeta", "rotulo": "LABIOS"},
+    "areola": {"recurso": "tarjeta", "rotulo": "AREOLA"},
+    "dermografo": {"recurso": "tarjeta", "rotulo": "DERMÓGRAFO"},
+    "micropigmentacion": {"recurso": "tarjeta", "rotulo": "MICROPIGMENTACIÓN"}
+  },
+  "efectos": {
+    "max_rotulos_por_10s": 2,
+    "min_separacion_rotulos_s": 3.0,
+    "duracion_rotulo_s": 1.6
+  },
+  "prohibiciones": [
+    "Inventar datos, cifras, estudios, DOI, testimonios o resultados clínicos",
+    "Presentar simulaciones o imágenes generadas como pacientes reales o antes/después reales",
+    "Tapar rostro, boca, ojos, manos, instrumentos o la zona de tratamiento",
+    "Alterar rasgos, rostro o voz de Cristina; voces sintéticas sin autorización",
+    "Música o imágenes sin licencia verificada",
+    "Logotipos o materiales de terceros",
+    "Modificar el logotipo oficial o usar colores no verificados en una pieza final",
+    "Publicar sin aprobación expresa de Cristina"
+  ]
+}

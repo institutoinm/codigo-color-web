@@ -1,0 +1,1 @@
+Un subdirectorio por vídeo: copia del original, transcripción, plan de cortes, ASS, EDL y proyecto editable.
