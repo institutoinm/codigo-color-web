@@ -42,12 +42,12 @@ export const SCENES = {
 
 // Textos breves para el panel que aparece al tocar una pieza (datos "extras" de Blender).
 export const HOTSPOTS = {
-  subtono: "Subtono: temperatura de la piel. Cálido (dorado) o frío (rosado-azulado).",
+  subtono: "Subtono: temperatura de la piel. Cálido (dorado), frío (rosado-azulado) o neutro.",
   valor: "Valor: luminosidad. Lo claro u oscuro de piel, cabello y ojos.",
   intensidad: "Intensidad: saturación. Colores brillantes y limpios o suaves y empolvados.",
   contraste: "Contraste: diferencia de valor entre piel, cabello y ojos.",
-  correcta: "Profundidad correcta: el pigmento queda en la franja superficial de la dermis y se mantiene nítido.",
-  excesiva: "Demasiado profundo: el pigmento se difumina y puede verse gris azulado.",
+  correcta: "Profundidad correcta: el pigmento queda en la franja superficial de la dermis y el trazo se ve definido.",
+  excesiva: "Demasiado profundo: el pigmento pierde definición y puede percibirse gris azulado.",
   "pigmento virado": "Pigmento antiguo virado a gris azulado.",
   corrector: "Corrector anaranjado: el complementario del azul en el círculo cromático.",
   "resultado neutro": "Resultado: un marrón neutro y estable.",

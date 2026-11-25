@@ -87,6 +87,10 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
 .clay-fallback .clay-canvas, .clay-chapter.is-fallback .clay-canvas,
 .clay-fallback .clay-poster, .clay-chapter.is-fallback .clay-poster { display: none; }
 
+/* Capa de controles: hermana de las tarjetas y por encima de ellas (sticky propio) */
+.clay-overlay { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.clay-overlay-inner { position: sticky; top: 0; height: 100vh; height: 100svh; }
+.clay-ui, .clay-tooltip { pointer-events: auto; }
 .clay-ui {
   position: absolute; z-index: 3; right: var(--clay-gutter); top: 50%; transform: translateY(-50%);
   display: flex; flex-direction: column; gap: 8px;
@@ -104,9 +108,11 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
   max-width: min(92vw, 460px); padding: 12px 16px; border-radius: 14px;
   background: var(--clay-card); border: 1px solid var(--clay-accent); backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); font-size: .95rem;
+  opacity: 0; visibility: hidden; transition: opacity .3s ease;
 }
+.clay-tooltip.is-visible { opacity: 1; visibility: visible; }
+.clay-fallback .clay-hint, .clay-chapter.is-fallback .clay-hint { display: none; }
 .clay-hint { position: absolute; z-index: 3; left: var(--clay-gutter); bottom: 18px; font-size: .8rem; color: var(--clay-muted); margin: 0; }
-.clay-fallback .clay-hint { display: none; }
 
 .clay-steps { position: relative; z-index: 2; margin-top: -100vh; margin-top: -100svh; pointer-events: none; }
 .clay-step {
@@ -131,7 +137,13 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
 
 /* Fallback: sin 3D los textos van debajo del vídeo, sin superposición */
 .clay-fallback .clay-stage { position: relative; height: auto; aspect-ratio: 16 / 9; }
-.clay-fallback .clay-steps { margin-top: 0; }
+.clay-fallback .clay-steps, .clay-chapter.is-fallback .clay-steps { margin-top: 0; }
+.clay-fallback .clay-overlay, .clay-fallback .clay-overlay-inner { position: static; height: auto; }
+.clay-fallback .clay-ui {
+  position: static; transform: none; flex-direction: row; flex-wrap: wrap; justify-content: center;
+  padding: 12px var(--clay-gutter);
+}
+.clay-fallback .clay-play { display: none; }
 .clay-fallback .clay-step { min-height: auto; padding-block: 16px; }
 
 /* ---------- Secciones de texto, FAQ, CTA ---------- */
@@ -161,7 +173,7 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
   .clay-ui button { flex: 0 0 auto; scroll-snap-align: start; }
   .clay-ui .clay-play { margin-top: 0; }
   .clay-ui button { padding: 0 12px; font-size: .75rem; }
-  .clay-step { align-items: flex-end; padding-bottom: 80px; }
+  .clay-step { align-items: flex-end; padding-bottom: 104px; } /* deja libre la botonera */
   .clay-step > div { padding: 18px; }
   .clay-hint { display: none; }
   .clay-tooltip { bottom: 76px; }

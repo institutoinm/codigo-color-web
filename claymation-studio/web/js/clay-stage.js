@@ -24,6 +24,10 @@ const isSmall = () => matchMedia("(max-width: 767px)").matches;
 const lowEnd = (navigator.deviceMemory && navigator.deviceMemory <= 4) || (navigator.hardwareConcurrency || 8) <= 4;
 
 const ACCENT = new THREE.Color(0x7fe3e0);
+const UP = new THREE.Vector3(0, 1, 0);
+const TMP_A = new THREE.Vector3();
+const TMP_B = new THREE.Vector3();
+const TMP_C = new THREE.Vector3();
 const b2t = ([x, y, z]) => new THREE.Vector3(x, z, -y); // Blender (Z arriba) → glTF (Y arriba)
 const smooth = (t) => t * t * (3 - 2 * t);
 
@@ -78,7 +82,8 @@ class ClayStage {
         if (!el) return;
         track("clay_step_button", { scene: this.slug, step: i });
         gsap.to(window, {
-          scrollTo: { y: el, offsetY: innerHeight * 0.25 },
+          // Con 3D: posición exacta del paso; en modo vídeo: la tarjeta de texto
+          scrollTo: { y: this.isFallback() ? el : this.stepScroll(i), autoKill: true },
           duration: reduceMotion ? 0 : 1.1,
           ease: "power2.inOut",
         });
@@ -88,14 +93,15 @@ class ClayStage {
     play?.addEventListener("click", () => {
       track("clay_play", { scene: this.slug });
       const st = this.trigger;
-      gsap.to(window, { scrollTo: st.end - 2, duration: reduceMotion ? 0 : 9, ease: "none" });
+      // autoKill: si la persona hace scroll o toca, la reproducción se detiene
+      gsap.to(window, { scrollTo: { y: st.end - 2, autoKill: true }, duration: reduceMotion ? 0 : 9, ease: "none" });
     });
 
     this.trigger = ScrollTrigger.create({
       trigger: this.chapter,
       start: "top top",
       end: "bottom bottom",
-      scrub: reduceMotion ? true : 0.6,
+      // Sin animación vinculada: el suavizado lo hace la cámara (lerp) en tick()
       onUpdate: (st) => {
         this.progress = st.progress;
         this.dirty = true;
@@ -113,10 +119,26 @@ class ClayStage {
     );
   }
 
-  updateStep() {
+  // El capítulo mide n pantallas y se desplaza (n−1): el paso i está centrado en progress = i/(n−1).
+  stepPos() {
     const n = this.cfg.steps.length;
-    const i = Math.min(n - 1, Math.floor(this.progress * n));
-    if (i !== this.stepIndex) {
+    const x = this.progress * (n - 1);
+    const i = Math.min(n - 1, Math.round(x));
+    return { n, i, local: THREE.MathUtils.clamp(x - i + 0.5, 0, 1) };
+  }
+
+  isFallback() {
+    return document.documentElement.classList.contains("clay-fallback") || this.chapter.classList.contains("is-fallback");
+  }
+
+  stepScroll(i) {
+    const st = this.trigger;
+    return st.start + (i / (this.cfg.steps.length - 1)) * (st.end - st.start);
+  }
+
+  updateStep(force = false) {
+    const { i } = this.stepPos();
+    if (force || i !== this.stepIndex) {
       this.stepIndex = i;
       this.buttons.forEach((b) => b.setAttribute("aria-current", String(Number(b.dataset.gotoStep) === i)));
       this.applyHighlight(this.cfg.steps[i].highlight);
@@ -164,7 +186,7 @@ class ClayStage {
 
     const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
     const base = this.chapter.dataset.glb;
-    const url = isSmall() || saveData || lowEnd ? base.replace(/\.glb$/, ".mobile.glb") : base;
+    const url = isSmall() || lowEnd ? base.replace(/\.glb$/, ".mobile.glb") : base;
     const gltf = await loader.loadAsync(url);
     this.model = gltf.scene;
     this.pickables = [];
@@ -179,8 +201,19 @@ class ClayStage {
       }
       m.userData.baseEmissive = m.emissive.clone();
       m.userData.baseEmissiveIntensity = m.emissiveIntensity;
-      const info = o.userData.dimension || o.userData.profundidad || o.userData.papel;
-      if (info) this.pickables.push(o);
+      // Los "extras" de Blender viven en el nodo padre (el objeto); la malla es su hijo.
+      for (let n = o; n && n !== this.model; n = n.parent) {
+        const u = n.userData;
+        if (u.dimension || u.profundidad || u.papel) {
+          o.userData.meta = u;
+          this.pickables.push(o);
+          break;
+        }
+      }
+      // Nombres de la malla y sus antecesores (en GLTFLoader la malla puede ser el nodo o su hijo)
+      const lineage = [];
+      for (let n = o; n && n !== this.model; n = n.parent) lineage.push(n.name);
+      o.userData.lineage = lineage;
     });
     scene.add(this.model);
 
@@ -196,7 +229,7 @@ class ClayStage {
     this.bindPointer();
     this.resize();
     new ResizeObserver(() => this.resize()).observe(this.stage);
-    this.updateStep();
+    this.updateStep(true); // reaplica el resaltado aunque el GLB cargue a mitad del capítulo
     this.updateCameraGoal(true);
     this.ready = true;
     this.stage.classList.add("is-ready");
@@ -208,7 +241,9 @@ class ClayStage {
     this.model.traverse((o) => {
       if (!o.isMesh) return;
       const m = o.material;
-      const on = h && ((h.dimension && o.userData.dimension === h.dimension) || (h.names && h.names.some((n) => o.name.startsWith(n))));
+      const meta = o.userData.meta || {};
+      const lineage = o.userData.lineage || [o.name];
+      const on = !!h && ((h.dimension && meta.dimension === h.dimension) || (h.names && h.names.some((n) => lineage.includes(n))));
       const glowBase = m.userData.baseEmissiveIntensity ?? 1;
       const isGlow = m.userData.baseEmissive && m.userData.baseEmissive.getHex() !== 0;
       // Resaltado "escáner ADN": un velo cian muy sutil sobre la plastilina
@@ -265,13 +300,17 @@ class ClayStage {
     ray.setFromCamera(ndc, this.camera);
     const hit = ray.intersectObjects(this.pickables, false)[0];
     if (!hit) return;
-    const u = hit.object.userData;
+    const u = hit.object.userData.meta;
     const key = u.dimension || u.profundidad || u.papel;
     const text = HOTSPOTS[key] || key;
+    // La región aria-live está siempre presente; sólo cambia su texto (así se anuncia)
     this.tooltip.textContent = u.polo ? `${text} Polo: ${u.polo}.` : text;
-    this.tooltip.hidden = false;
+    this.tooltip.classList.add("is-visible");
     clearTimeout(this._tt);
-    this._tt = setTimeout(() => (this.tooltip.hidden = true), 5000);
+    this._tt = setTimeout(() => {
+      this.tooltip.classList.remove("is-visible");
+      this.tooltip.textContent = "";
+    }, 6000);
     track("clay_hotspot", { scene: this.slug, key });
   }
 
@@ -287,10 +326,7 @@ class ClayStage {
   // Cámara: interpolación suave entre los encuadres de cada paso.
   updateCameraGoal(snap = false) {
     const steps = this.cfg.steps;
-    const n = steps.length;
-    const x = this.progress * n;
-    const i = Math.min(n - 1, Math.floor(x));
-    const local = Math.min(1, x - i);
+    const { i, local } = this.stepPos();
     const prev = steps[Math.max(0, i - 1)];
     const cur = steps[i];
     const t = i === 0 ? 1 : smooth(Math.min(1, local / 0.45));
@@ -328,17 +364,18 @@ class ClayStage {
     if (!this.ready || !this.visible) return;
     this.updateCameraGoal();
     const k = reduceMotion ? 1 : 0.08;
-    const before = this.camPos.clone();
+    TMP_A.copy(this.camPos);
     this.camPos.lerp(this.goalPos, k);
     this.camTarget.lerp(this.goalTarget, k);
     this.yaw += (this.yawGoal - this.yaw) * 0.12;
     this.pitch += (this.pitchGoal - this.pitch) * 0.12;
-    const moving = before.distanceToSquared(this.camPos) > 1e-7 || Math.abs(this.yawGoal - this.yaw) > 1e-4;
+    const moving = TMP_A.distanceToSquared(this.camPos) > 1e-7 ||
+      Math.abs(this.yawGoal - this.yaw) > 1e-4 || Math.abs(this.pitchGoal - this.pitch) > 1e-4;
 
-    // Órbita manual alrededor del objetivo
-    const off = this.camPos.clone().sub(this.camTarget);
-    off.applyAxisAngle(new THREE.Vector3(0, 1, 0), this.yaw);
-    const right = new THREE.Vector3().crossVectors(off, new THREE.Vector3(0, 1, 0)).normalize();
+    // Órbita manual alrededor del objetivo (vectores reutilizados: sin basura por fotograma)
+    const off = TMP_B.copy(this.camPos).sub(this.camTarget);
+    off.applyAxisAngle(UP, this.yaw);
+    const right = TMP_C.crossVectors(off, UP).normalize();
     off.applyAxisAngle(right, this.pitch);
     this.camera.position.copy(this.camTarget).add(off);
     this.camera.lookAt(this.camTarget);
@@ -364,11 +401,23 @@ class ClayStage {
 }
 
 // ---------- Arranque ----------
+// Vídeo de respaldo: con controles; sólo se reproduce solo si no se pidió reducir movimiento ni ahorrar datos.
+function startVideos(root) {
+  root.querySelectorAll(".clay-video").forEach((v) => {
+    v.controls = true;
+    if (!reduceMotion && !saveData) {
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  });
+}
+
 const chapters = [...document.querySelectorAll(".clay-chapter")];
 const useFallback = reduceMotion || saveData || !webglAvailable();
 document.documentElement.classList.toggle("clay-fallback", useFallback);
 
 const stages = chapters.map((ch) => new ClayStage(ch));
+window.__clayStages = stages; // inspección en pruebas automáticas
 
 if (!useFallback) {
   const io = new IntersectionObserver(
@@ -379,7 +428,10 @@ if (!useFallback) {
         if (e.isIntersecting && !s.loading) {
           s.loading = s.init().catch((err) => {
             console.error("Claymation:", err);
+            s.ready = false;
+            s.renderer?.dispose();
             s.chapter.classList.add("is-fallback");
+            startVideos(s.chapter);
           });
         }
       }),
@@ -392,14 +444,7 @@ if (!useFallback) {
   };
   requestAnimationFrame(loop);
 } else {
-  // Vídeo de respaldo: sólo se reproduce solo si el usuario no ha pedido reducir movimiento.
-  document.querySelectorAll(".clay-video").forEach((v) => {
-    v.controls = true;
-    if (!reduceMotion && !saveData) {
-      v.muted = true;
-      v.play().catch(() => {});
-    }
-  });
+  startVideos(document);
 }
 
 // CTA visibles: medición de clics para CRO

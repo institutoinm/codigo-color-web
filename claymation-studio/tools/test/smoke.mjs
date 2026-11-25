@@ -46,6 +46,21 @@ for (const [vpName, vp] of Object.entries(viewports)) {
             document.documentElement.classList.contains("clay-fallback"),
           c, { timeout: 90000 })
         .catch(() => errors.push(`capítulo ${c} no listo`));
+      // Comprobaciones funcionales: piezas tocables y resaltado activo en el paso 1
+      const info = await page.evaluate(async (i) => {
+        const s = window.__clayStages?.[i];
+        if (!s || !s.ready) return null;
+        window.scrollTo(0, s.stepScroll(1));
+        await new Promise((r) => setTimeout(r, 800));
+        let lit = 0;
+        s.model.traverse((o) => { if (o.isMesh && o.material.emissiveIntensity > 0.1 && o.material.emissive.getHex() !== 0) lit++; });
+        return { pickables: s.pickables.length, step: s.stepIndex, lit };
+      }, c);
+      if (info) {
+        console.log(`   capítulo ${c}: tocables=${info.pickables} paso=${info.step} resaltadas=${info.lit}`);
+        if (!info.pickables) errors.push(`capítulo ${c} sin piezas tocables`);
+        if (info.step !== 1) errors.push(`capítulo ${c}: el botón del paso 1 no activa el paso 1`);
+      }
       for (const f of [0.02, 0.5, 0.97]) {
         await page.evaluate((y) => scrollTo(0, y), top + (height - vp.height) * f);
         await page.waitForTimeout(2500);

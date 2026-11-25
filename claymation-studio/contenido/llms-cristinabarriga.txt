@@ -8,7 +8,7 @@
 
 ## Definiciones
 
-- Subtono: temperatura de la piel. Cálido (dorado, melocotón) o frío (rosado, azulado).
+- Subtono: temperatura de la piel. Cálido (dorado, melocotón), frío (rosado, azulado) o neutro; algunas pieles tienen matiz oliva.
 - Valor: luminosidad. Lo claros u oscuros que son piel, cabello y ojos.
 - Intensidad: saturación o croma. Colores brillantes y limpios frente a suaves y empolvados.
 - Contraste: diferencia de valor entre piel, cabello y ojos.

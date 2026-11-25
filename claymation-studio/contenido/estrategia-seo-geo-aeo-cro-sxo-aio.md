@@ -15,7 +15,7 @@ Se aplica a las dos páginas creadas:
 | Elemento | Aplicado |
 |---|---|
 | `<title>` | Palabra clave al principio, marca al final, menos de 65 caracteres |
-| Meta description | 150–160 caracteres con beneficio y entidad |
+| Meta description | 120–160 caracteres con beneficio y entidad |
 | Un único `<h1>` y jerarquía H2/H3 | Sí; los pasos de la animación son H3 indexables en el HTML |
 | Canonical, robots con `max-image-preview:large` y `max-video-preview:-1` | Sí |
 | Open Graph y Twitter Card con póster 1280×720 | Sí |

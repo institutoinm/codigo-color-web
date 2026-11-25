@@ -18,14 +18,14 @@ Página HTML (textos, póster, vídeo)  ──►  clay-stage.js (three.js + GSA
 
 | Interacción | Implementación | Por qué |
 |---|---|---|
-| **Scroll** | `ScrollTrigger` (scrub 0,6) sobre cada capítulo. El progreso se reparte entre los pasos; cada paso tiene su rango de fotogramas y su encuadre (`web/js/scenes.js`). | El usuario controla el ritmo de la explicación. |
+| **Scroll** | `ScrollTrigger` sobre cada capítulo (n pantallas de alto, n−1 de recorrido). El paso *i* está centrado en progress = i/(n−1), alineado con su tarjeta de texto; cada paso tiene su rango de fotogramas y su encuadre (`web/js/scenes.js`). El suavizado lo aporta la cámara. | El usuario controla el ritmo de la explicación. |
 | **Pose a pose** | El fotograma se redondea a múltiplos de 2 → 12 poses/s también en la web. | Coherencia con el stop motion de Blender. |
 | **Hervido** | Cada 1/12 s se desplaza ligeramente el mapa de normales y su intensidad. | La plastilina «respira» incluso en pausa. |
 | **Cámara cinematográfica** | Interpolación suave entre encuadres; en vertical se aleja automáticamente para que todo quepa. | Movimiento fluido frente al modelo a saltitos. |
 | **Toque / arrastre** | Pointer Events con `touch-action: pan-y`: el arrastre horizontal gira la escena (±34°) y el vertical sigue haciendo scroll. Doble clic: recentrar. | Funciona igual con ratón, dedo y lápiz. |
 | **Tocar una pieza** | Raycaster sobre las piezas con datos `extras` exportados desde Blender (`dimension`, `polo`, `profundidad`, `papel`). Panel `aria-live`. | Explicación a demanda, sin saturar la pantalla. |
 | **Botones de capítulo** | `ScrollToPlugin` lleva al paso; `aria-current` marca el activo. | Atajos para quien no quiere hacer scroll. |
-| **«Ver completa»** | Desplaza la página hasta el final del capítulo en 9 s. | Modo «reproducir» sin perder la sincronía. |
+| **«Ver completa»** | Desplaza la página hasta el final del capítulo en 9 s; se interrumpe en cuanto la persona hace scroll (`autoKill`). | Modo «reproducir» sin perder la sincronía ni el control. |
 | **Teclado** | El lienzo es enfocable; flechas para girar. | Accesibilidad (WCAG 2.1.1). |
 
 ## Matriz de respaldo
@@ -33,8 +33,10 @@ Página HTML (textos, póster, vídeo)  ──►  clay-stage.js (three.js + GSA
 | Situación | Qué se muestra |
 |---|---|
 | WebGL disponible | Póster inmediato → GLB al acercarse al capítulo (`IntersectionObserver`, 300 px) → fundido al 3D |
-| Móvil, Save-Data o dispositivo modesto (≤ 4 GB / ≤ 4 núcleos) | GLB `.mobile.glb` (mitad de polígonos, texturas 256 px), sin antialias ni sombras en gama baja |
-| `prefers-reduced-motion` | Sin 3D ni scrub: vídeo con controles, en pausa, y textos debajo |
+| Móvil o dispositivo modesto (≤ 4 GB / ≤ 4 núcleos) | GLB `.mobile.glb` (mitad de polígonos, texturas 256 px), sin antialias ni sombras en gama baja |
+| `prefers-reduced-motion` | Sin 3D: vídeo con controles, en pausa, y textos debajo (se evalúa al cargar la página) |
+| Save-Data | Sin 3D: vídeo con controles, sin reproducción automática |
+| Error al cargar el GLB | Ese capítulo pasa a vídeo con controles y se libera el contexto WebGL |
 | Sin WebGL | Vídeo silenciado en bucle (o en pausa si Save-Data) con controles |
 | Sin JavaScript | Póster `<picture>` 16:9 / 9:16 y todos los textos (el contenido nunca depende del 3D) |
 
@@ -45,7 +47,7 @@ Página HTML (textos, póster, vídeo)  ──►  clay-stage.js (three.js + GSA
 | GLB por escena | 0,56–0,87 MB | 0,39–0,67 MB |
 | three.js + GLTFLoader + meshopt (sin minificar / gzip) | ≈ 1,3 MB / ≈ 300 kB | igual |
 | GSAP + ScrollTrigger + ScrollTo | ≈ 115 kB / 45 kB | igual |
-| Render | Bajo demanda (sólo si cambia cámara, pose o hervido); pausa fuera de pantalla | DPR máx. 1,5 |
+| Render | Sólo cuando cambia la cámara o la pose, y a 12 fps en reposo por el «hervido»; nada fuera de pantalla | DPR máx. 1,5 |
 
 Para producción se recomienda empaquetar con Vite (tree-shaking de three.js) y servir con Brotli.
 
