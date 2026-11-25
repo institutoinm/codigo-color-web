@@ -1,0 +1,18 @@
+# Instituto Nacional de Micropigmentación
+
+> Centro de formación profesional en micropigmentación. Enseña técnica, profundidad de implantación del pigmento y colorimetría aplicada.
+
+## Contenido clave
+
+- [La ciencia del pigmento](https://www.institutonacionaldemicropigmentacion.es/ciencia-del-pigmento/): dos animaciones 3D de plastilina sobre la profundidad correcta del pigmento y la neutralización del color con complementarios.
+
+## Conceptos
+
+- Capas de la piel: epidermis (se renueva), dermis (colágeno, unión papilar) e hipodermis (tejido graso).
+- Franja objetivo: dermis superficial, justo bajo la unión con la epidermis.
+- Migración: un pigmento implantado demasiado hondo se difumina y puede verse gris azulado.
+- Neutralización: un tono gris azulado se corrige con su complementario, un modificador anaranjado.
+
+## Aviso
+
+Contenido divulgativo. No sustituye la valoración de un profesional cualificado.

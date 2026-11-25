@@ -1,0 +1,25 @@
+{
+  "name": "claymation-science-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pipeline Blender → GLB → web (three.js + GSAP ScrollTrigger) para animaciones de plastilina.",
+  "scripts": {
+    "vendor": "node tools/vendor.mjs",
+    "glb:web": "node tools/optimize-glb.mjs && node tools/strip-sheen.mjs",
+    "glb:validate": "node tools/validate-glb.mjs",
+    "serve": "python3 -m http.server 8080",
+    "test": "node tools/test/smoke.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.13.0",
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/cli": "4.2.1",
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "axe-core": "^4.10.3",
+    "gltf-validator": "2.0.0-dev.3.10",
+    "meshoptimizer": "0.24.0"
+  }
+}

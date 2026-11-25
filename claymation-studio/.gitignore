@@ -1,0 +1,6 @@
+node_modules/
+assets/video/_frames/
+assets/glb/_bake/
+*.blend1
+tools/test/out/
+__pycache__/
