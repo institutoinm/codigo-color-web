@@ -52,6 +52,14 @@ La hizo un agente revisor sin acceso a mis conclusiones, sólo al código. Halla
 | SEO | El INM no tenía transcripción ni `og:video` | Añadidos, en el HTML y en el JSON-LD |
 | Contenido | Afirmaciones sanitarias demasiado categóricas, «modelados a mano», subtono sin neutro, nombre interno en inglés, CTA incoherente, gramática | Reescrito: semipermanencia y retoques, efecto Tyndall, «puede atenuarse», subtono neutro u oliva, CTA a contacto |
 
+## Verificación final con los vídeos renderizados
+
+- 6 vídeos (3 escenas × 16:9 y 9:16, MP4 H.264 + WebM VP9, 0,09–0,50 MB) y 12 pósteres WebP/JPG generados con Blender (Cycles).
+- Prueba completa en escritorio y móvil: sin errores ni recursos 404.
+- Prueba con `prefers-reduced-motion: reduce`: se muestra el vídeo con controles y sin reproducción automática. Al revisarla se
+  vio que en móvil aparecía el póster horizontal dentro del vídeo vertical; corregido (el póster vertical se elige por código).
+- Los .blend llevan las texturas horneadas empaquetadas: se abren sin archivos externos.
+
 ## Limitaciones conocidas (aceptadas)
 
 - `prefers-reduced-motion` se evalúa al cargar la página, no si se cambia durante la visita.

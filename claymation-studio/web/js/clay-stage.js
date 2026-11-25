@@ -403,7 +403,10 @@ class ClayStage {
 // ---------- Arranque ----------
 // Vídeo de respaldo: con controles; sólo se reproduce solo si no se pidió reducir movimiento ni ahorrar datos.
 function startVideos(root) {
+  const vertical = matchMedia("(max-width: 767px)").matches;
   root.querySelectorAll(".clay-video").forEach((v) => {
+    // El atributo poster no admite media queries: en móvil se usa el póster vertical del mismo vídeo.
+    if (vertical && v.poster.includes("_16x9.")) v.poster = v.poster.replace("_16x9.", "_9x16.");
     v.controls = true;
     if (!reduceMotion && !saveData) {
       v.muted = true;
